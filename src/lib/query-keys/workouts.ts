@@ -23,6 +23,13 @@ export const workoutKeys = {
   }) => ["workouts", "recent", opts] as const,
   workoutDetail: (id: string) => ["workouts", id] as const,
   /**
+   * Everyday exertion entries. Under the `["workouts"]` root: they ride the
+   * activity record, and a write changes any open day's exertion section.
+   * The window bounds are the key; null means unbounded.
+   */
+  exertionEvents: (from: string | null, to: string | null) =>
+    ["workouts", "exertion", from, to] as const,
+  /**
    * v1.44 — the workout-route opt-in. Its own root, so invalidating the
    * workout caches after a sync never refetches the setting.
    */

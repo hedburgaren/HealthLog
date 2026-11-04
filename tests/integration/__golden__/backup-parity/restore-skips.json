@@ -690,6 +690,8 @@
     "SymptomDefinition": [],
     "SymptomEvent": [],
     "LifeEvent": [],
+    "AcuteEvent": [],
+    "ExertionEvent": [],
     "UserHealthProfile": [],
     "HealthProfileFactRevision": [],
     "CycleProfile": [],

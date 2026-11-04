@@ -67,7 +67,7 @@ describe("day access", () => {
     );
   });
 
-  it("keeps the environment rows and the life events for the owner even under a full grant", () => {
+  it("keeps the environment rows, the life events, the acute events and the exertion entries for the owner even under a full grant", () => {
     const access = resolveDayAccessFrom({
       modules: ALL_ON,
       domainVisible: () => true,
@@ -75,7 +75,14 @@ describe("day access", () => {
     });
     expect(access.readable.has("environment")).toBe(false);
     expect(access.readable.has("lifeEvents")).toBe(false);
-    expect(access.notShared).toEqual(["environment", "lifeEvents"]);
+    expect(access.readable.has("acuteEvents")).toBe(false);
+    expect(access.readable.has("exertion")).toBe(false);
+    expect(access.notShared).toEqual([
+      "environment",
+      "lifeEvents",
+      "acuteEvents",
+      "exertion",
+    ]);
   });
 
   it("opens the life events to the owner", () => {
@@ -85,6 +92,10 @@ describe("day access", () => {
       owner: true,
     });
     expect(access.readable.has("lifeEvents")).toBe(true);
+    // The acute events and the exertion entries share the owner-only
+    // posture.
+    expect(access.readable.has("acuteEvents")).toBe(true);
+    expect(access.readable.has("exertion")).toBe(true);
   });
 
   it("maps every section to a real sharing domain or to the owner", () => {

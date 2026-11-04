@@ -503,7 +503,11 @@
       "symptom": "Symptôme",
       "symptomDescription": "L'un de vos propres symptômes, avec son intensité",
       "lifeEventDescription": "Un déménagement, une naissance, un nouvel emploi",
-      "lifeEvent": "Événement de vie"
+      "lifeEvent": "Événement de vie",
+      "acuteEventDescription": "Quelque chose qui est arrivé et qui a fait mal",
+      "acuteEvent": "Événement aigu",
+      "exertionDescription": "Une charge du quotidien au-delà de l'habitude",
+      "exertion": "Effort"
     },
     "cycle": "Cycle",
     "labs": "Analyses",
@@ -792,7 +796,9 @@
     },
     "greetingOnly": "{greeting}.",
     "welcomeNew": "Bienvenue.",
-    "welcomeNewWithName": "Bienvenue, {name}."
+    "welcomeNewWithName": "Bienvenue, {name}.",
+    "quickAddAcuteEvent": "Consigner un événement aigu",
+    "quickAddExertion": "Consigner un effort"
   },
   "measurements": {
     "title": "Mesures",
@@ -2768,7 +2774,9 @@
         "STATE_OF_MIND_VALENCE": "l'état d'esprit noté",
         "INDOOR_CO2": "le CO2 intérieur",
         "INDOOR_TEMPERATURE": "la température intérieure",
-        "INDOOR_HUMIDITY": "l'humidité intérieure"
+        "INDOOR_HUMIDITY": "l'humidité intérieure",
+        "ACUTE_EVENT": "événements aigus",
+        "EXERTION": "efforts du quotidien"
       },
       "daily": {
         "high": "Quand {behaviour} monte, {outcome} du lendemain tend à {direction} dans vos données. C'est une tendance à surveiller, pas une cause.",
@@ -13506,7 +13514,8 @@
       "paused": "Pause : {label}",
       "resumed": "Reprise : {label}",
       "illnessBegan": "Début : {label}",
-      "illnessResolved": "Guérison : {label}"
+      "illnessResolved": "Guérison : {label}",
+      "intensityPill": "{value}/10"
     },
     "pickDate": "Choisir une date",
     "pickerTitle": "Aller à un jour",
@@ -13754,6 +13763,53 @@
     "legendLabValue": "Valeur de laboratoire, telle que mesurée",
     "legendLabOutside": "Hors de l’intervalle de référence",
     "legendLabRange": "Intervalle de référence"
+  },
+  "acuteEvents": {
+    "category": {
+      "HOME": "À la maison",
+      "WORK": "Au travail",
+      "COMMUTE": "En déplacement",
+      "FINANCE": "Argent",
+      "OTHER": "Autre chose"
+    },
+    "entry": {
+      "sheetDescription": "Ce qui s'est passé, à quel point, quand.",
+      "category": "De quel type était-ce ?",
+      "categoryRequired": "Choisissez de quel type il s'agissait.",
+      "intensity": "Intensité",
+      "intensityRequired": "Indiquez à quel point c'était fort.",
+      "intensityUnset": "Non défini",
+      "anchorLow": "À peine là",
+      "anchorHigh": "Aussi mauvais que possible",
+      "intensityValueText": "{value} sur {max} ({low} à {high})",
+      "when": "Quand",
+      "note": "Note",
+      "notePlaceholder": "Ce qui s'est passé, avec vos mots ?",
+      "reset": "Réinitialiser le formulaire"
+    },
+    "saveError": "Échec de l'enregistrement. Réessayez."
+  },
+  "exertion": {
+    "entry": {
+      "sheetDescription": "Ce que c'était, la charge ressentie, la durée.",
+      "label": "Qu'avez-vous fait ?",
+      "labelRequired": "Écrivez ce que c'était.",
+      "labelPlaceholder": "Courses portées trois étages plus haut",
+      "intensity": "Effort ressenti",
+      "intensityRequired": "Indiquez la charge ressentie.",
+      "intensityUnset": "Non défini",
+      "anchorLow": "Presque rien",
+      "anchorHigh": "Aussi lourd que possible",
+      "intensityValueText": "{value} sur {max} ({low} à {high})",
+      "duration": "Durée (minutes)",
+      "durationPlaceholder": "p. ex. 15",
+      "durationInvalid": "Saisissez les minutes en nombre entier, au moins 1.",
+      "when": "Quand",
+      "note": "Note",
+      "notePlaceholder": "Autre chose à noter ?",
+      "reset": "Réinitialiser le formulaire"
+    },
+    "saveError": "Échec de l'enregistrement. Réessayez."
   },
   "lifeEvents": {
     "title": "Événement de vie",

@@ -29,6 +29,8 @@ import {
   SCHEDULE_COMPLIANCE_SELECT,
 } from "@/lib/analytics/compliance";
 import {
+  ACUTE_EVENT_CHANNEL_KEY,
+  EXERTION_CHANNEL_KEY,
   FACTOR_CHANNEL_PREFIX,
   INDOOR_CLIMATE_TARGETS,
   INDOOR_CLIMATE_TYPES,
@@ -50,6 +52,7 @@ import { isAirQualityActive } from "@/lib/environment/open-meteo-air-quality";
 import {
   buildAlcoholDailySeries,
   buildComplianceDailySeries,
+  buildIntensityEventDailySeries,
   buildNutrientDailySeries,
   buildOvernightClimateSeries,
   buildTrainingLoadSeries,
@@ -503,6 +506,62 @@ export async function fetchSymptomEventSeries(
     );
   }
   return series;
+}
+
+/**
+ * The ACUTE_EVENT behaviour channel: the day's highest logged stressor
+ * intensity over the window. The note text is never read here; only the
+ * instant and the intensity reach the scan. Empty for an account that never
+ * logged one, so the channel degrades to absent. The caller skips this read
+ * when the `timeline` module is off.
+ */
+export async function fetchAcuteEventSeries(
+  userId: string,
+  tz: string,
+  since: Date,
+): Promise<NamedSeries> {
+  const rows = await prisma.acuteEvent.findMany({
+    where: { userId, occurredAt: { gte: since } },
+    orderBy: [{ occurredAt: "desc" }, { id: "desc" }],
+    take: 5000,
+    select: { occurredAt: true, intensity: true },
+  });
+  return buildIntensityEventDailySeries({
+    key: ACUTE_EVENT_CHANNEL_KEY,
+    events: rows.map((row) => ({
+      at: row.occurredAt,
+      intensity: row.intensity,
+    })),
+    tz,
+  });
+}
+
+/**
+ * The EXERTION behaviour channel: the day's highest perceived exertion over
+ * the window. The label and the note are never read here; only the instant
+ * and the intensity reach the scan. Empty for an account that never logged
+ * one, so the channel degrades to absent. The caller skips this read when
+ * the `workouts` module is off.
+ */
+export async function fetchExertionSeries(
+  userId: string,
+  tz: string,
+  since: Date,
+): Promise<NamedSeries> {
+  const rows = await prisma.exertionEvent.findMany({
+    where: { userId, occurredAt: { gte: since } },
+    orderBy: [{ occurredAt: "desc" }, { id: "desc" }],
+    take: 5000,
+    select: { occurredAt: true, intensity: true },
+  });
+  return buildIntensityEventDailySeries({
+    key: EXERTION_CHANNEL_KEY,
+    events: rows.map((row) => ({
+      at: row.occurredAt,
+      intensity: row.intensity,
+    })),
+    tz,
+  });
 }
 
 /** Day key (YYYY-MM-DD) for an instant in the user's display timezone. */

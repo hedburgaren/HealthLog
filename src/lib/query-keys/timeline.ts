@@ -23,4 +23,11 @@ export const timelineKeys = {
   timelineReadiness: () => ["timeline", "readiness"] as const,
   /** `GET /api/life-events`. */
   lifeEvents: () => ["timeline", "life-events"] as const,
+  /**
+   * Acute stressor events. Under the `["timeline"]` root: a write changes the
+   * timeline's life lane content and any open day's acuteEvents section.
+   * The window bounds are the key; null means unbounded.
+   */
+  acuteEvents: (from: string | null, to: string | null) =>
+    ["timeline", "acute-events", from, to] as const,
 };

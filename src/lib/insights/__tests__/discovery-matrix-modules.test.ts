@@ -71,6 +71,16 @@ vi.mock("@/lib/insights/correlation-channel-series", () => ({
       points: pts,
     },
   ]),
+  fetchAcuteEventSeries: vi.fn(async () => ({
+    key: "ACUTE_EVENT",
+    role: "behaviour",
+    points: pts,
+  })),
+  fetchExertionSeries: vi.fn(async () => ({
+    key: "EXERTION",
+    role: "behaviour",
+    points: pts,
+  })),
 }));
 vi.mock("@/lib/rollups/measurement-read", () => ({
   loadUserSourcePriority: vi.fn(),
@@ -116,6 +126,8 @@ describe("assembleDiscoveryMatrix — switched-off modules", () => {
       "CUSTOM_METRIC:abc",
       "SYMPTOM:def1",
       "WEIGHT",
+      "ACUTE_EVENT",
+      "EXERTION",
     ]) {
       expect(keys).toContain(key);
     }
@@ -131,6 +143,8 @@ describe("assembleDiscoveryMatrix — switched-off modules", () => {
         medications: false,
         illness: false,
         environment: false,
+        timeline: false,
+        workouts: false,
       },
     });
     const keys = keysOf(series);
@@ -144,6 +158,8 @@ describe("assembleDiscoveryMatrix — switched-off modules", () => {
       "SYMPTOM:def1",
       "ENV_TEMP_MEAN",
       "MOVEMENT_AWAY",
+      "ACUTE_EVENT",
+      "EXERTION",
     ]) {
       expect(keys, gone).not.toContain(gone);
       expect(byMetric.has(gone), gone).toBe(false);
@@ -217,6 +233,8 @@ describe("assembleDiscoveryMatrix — the extended families (v1.44)", () => {
     "MINDFUL_MINUTES",
     "STATE_OF_MIND_VALENCE",
     "INDOOR_CO2",
+    "ACUTE_EVENT",
+    "EXERTION",
   ];
 
   it("folds every extended family in after the earlier ones", async () => {
@@ -252,6 +270,7 @@ describe("assembleDiscoveryMatrix — the extended families (v1.44)", () => {
         mood: false,
         workouts: false,
         environment: false,
+        timeline: false,
       },
     });
     for (const read of reads) expect(read).not.toHaveBeenCalled();
@@ -266,6 +285,8 @@ describe("assembleDiscoveryMatrix — the extended families (v1.44)", () => {
       "MINDFUL_MINUTES",
       "STATE_OF_MIND_VALENCE",
       "INDOOR_CO2",
+      "ACUTE_EVENT",
+      "EXERTION",
     ]) {
       expect(keys, gone).not.toContain(gone);
     }

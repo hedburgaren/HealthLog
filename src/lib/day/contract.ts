@@ -91,6 +91,9 @@ export const DAY_INDEX_MAX_SPAN_DAYS = 366;
  *   cycle        the cycle phase and the day log
  *   environment  the day's environment row and a travel period
  *   lifeEvents   life events dated that day at DAY precision, or spanning it
+ *   acuteEvents  acute stressor events logged that day (owner-only, never
+ *                sent to a model)
+ *   exertion     everyday exertion entries logged that day
  */
 export const DAY_SECTION_KEYS = [
   "values",
@@ -111,6 +114,8 @@ export const DAY_SECTION_KEYS = [
   "cycle",
   "environment",
   "lifeEvents",
+  "acuteEvents",
+  "exertion",
 ] as const;
 
 export type DaySectionKey = (typeof DAY_SECTION_KEYS)[number];
@@ -119,9 +124,13 @@ export type DaySectionKey = (typeof DAY_SECTION_KEYS)[number];
  * Sections a model never sees, whatever it asks for. The Coach and the MCP
  * endpoint read a day through `get_day`, and that projection drops these
  * before anything leaves the instance (v1.42: life events go to no model).
+ * Acute events join them: a quarrel at home or a conflict at work is the
+ * person's own account of their day, and the intensity the correlation
+ * matrix reads is a number, not the words around it.
  */
 export const MODEL_EXCLUDED_DAY_SECTIONS = [
   "lifeEvents",
+  "acuteEvents",
 ] as const satisfies readonly DaySectionKey[];
 
 /**
@@ -220,6 +229,8 @@ export const DAY_EVENT_KINDS = [
   "workout",
   "cycleDayLog",
   "lifeEvent",
+  "acuteEvent",
+  "exertion",
 ] as const;
 
 export type DayEventKind = (typeof DAY_EVENT_KINDS)[number];

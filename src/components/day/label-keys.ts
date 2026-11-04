@@ -6,6 +6,7 @@
  * union, and `label-keys.test.ts` resolves every value against the bundle.
  */
 import type { AllergySeverity, FlowLevel } from "@/generated/prisma/client";
+import type { AcuteEventCategory } from "@/lib/acute-events/shared";
 import type { DayNotableKind } from "@/lib/day/contract";
 import type { InstrumentId } from "@/lib/mental-health/instruments";
 import type { WorkoutSportType } from "@/lib/validations/workout";
@@ -15,6 +16,17 @@ export const DAY_NOTABLE_KEY: Readonly<Record<DayNotableKind, string>> = {
   extremeLow: "day.notable.extremeLow",
   firstValue: "day.notable.firstValue",
   gap: "day.notable.gap",
+};
+
+/** The closed category list of an acute stressor event. */
+export const ACUTE_EVENT_CATEGORY_KEY: Readonly<
+  Record<AcuteEventCategory, string>
+> = {
+  HOME: "acuteEvents.category.HOME",
+  WORK: "acuteEvents.category.WORK",
+  COMMUTE: "acuteEvents.category.COMMUTE",
+  FINANCE: "acuteEvents.category.FINANCE",
+  OTHER: "acuteEvents.category.OTHER",
 };
 
 export const CYCLE_FLOW_KEY: Readonly<Record<FlowLevel, string>> = {

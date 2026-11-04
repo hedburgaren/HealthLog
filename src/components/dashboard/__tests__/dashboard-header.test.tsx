@@ -240,6 +240,8 @@ describe("<DashboardHeader> — every entry follows its module, as the capture p
         symptom: "Log symptom",
         workout: "Log workout",
         lifeEvent: "Log life event",
+        acuteEvent: "Log acute event",
+        exertion: "Log exertion",
       } as const;
       for (const kind of CAPTURE_KIND_ORDER) {
         expect(

@@ -503,7 +503,11 @@
       "symptom": "Symptoom",
       "symptomDescription": "Een van je eigen symptomen, met de ernst",
       "lifeEventDescription": "Een verhuizing, een geboorte, een nieuwe baan",
-      "lifeEvent": "Levensgebeurtenis"
+      "lifeEvent": "Levensgebeurtenis",
+      "acuteEventDescription": "Iets dat gebeurde en hard aankwam",
+      "acuteEvent": "Acute gebeurtenis",
+      "exertionDescription": "Alledaagse belasting boven het gewone",
+      "exertion": "Inspanning"
     },
     "cycle": "Cyclus",
     "labs": "Labwaarden",
@@ -792,7 +796,9 @@
     },
     "greetingOnly": "{greeting}.",
     "welcomeNew": "Welkom.",
-    "welcomeNewWithName": "Welkom, {name}."
+    "welcomeNewWithName": "Welkom, {name}.",
+    "quickAddAcuteEvent": "Acute gebeurtenis loggen",
+    "quickAddExertion": "Inspanning loggen"
   },
   "measurements": {
     "title": "Metingen",
@@ -2768,7 +2774,9 @@
         "STATE_OF_MIND_VALENCE": "vastgelegde gemoedstoestand",
         "INDOOR_CO2": "CO2 binnen",
         "INDOOR_TEMPERATURE": "binnentemperatuur",
-        "INDOOR_HUMIDITY": "luchtvochtigheid binnen"
+        "INDOOR_HUMIDITY": "luchtvochtigheid binnen",
+        "ACUTE_EVENT": "acute gebeurtenissen",
+        "EXERTION": "alledaagse inspanning"
       },
       "daily": {
         "high": "Bij hogere waarden voor {behaviour} ligt {outcome} de volgende dag in je gegevens vaak {direction}. Het is een patroon om in de gaten te houden, geen oorzaak.",
@@ -13506,7 +13514,8 @@
       "paused": "{label} gepauzeerd",
       "resumed": "{label} hervat",
       "illnessBegan": "{label} begonnen",
-      "illnessResolved": "{label} voorbij"
+      "illnessResolved": "{label} voorbij",
+      "intensityPill": "{value}/10"
     },
     "pickDate": "Kies een datum",
     "pickerTitle": "Naar een dag gaan",
@@ -13754,6 +13763,53 @@
     "legendLabValue": "Labwaarde, zoals gemeten",
     "legendLabOutside": "Buiten het referentiebereik",
     "legendLabRange": "Referentiebereik"
+  },
+  "acuteEvents": {
+    "category": {
+      "HOME": "Thuis",
+      "WORK": "Op het werk",
+      "COMMUTE": "Onderweg",
+      "FINANCE": "Geld",
+      "OTHER": "Iets anders"
+    },
+    "entry": {
+      "sheetDescription": "Wat er gebeurde, hoe erg het was, wanneer.",
+      "category": "Wat voor soort was het?",
+      "categoryRequired": "Kies wat het was.",
+      "intensity": "Intensiteit",
+      "intensityRequired": "Stel in hoe sterk het was.",
+      "intensityUnset": "Niet ingesteld",
+      "anchorLow": "nauwelijks merkbaar",
+      "anchorHigh": "Zo erg als het komt",
+      "intensityValueText": "{value} van {max} ({low} tot {high})",
+      "when": "Wanneer",
+      "note": "Notitie",
+      "notePlaceholder": "Wat er gebeurde, in eigen woorden?",
+      "reset": "Formulier wissen"
+    },
+    "saveError": "Opslaan mislukt. Probeer het opnieuw."
+  },
+  "exertion": {
+    "entry": {
+      "sheetDescription": "Wat het was, hoe zwaar het voelde, hoe lang het duurde.",
+      "label": "Wat heb je gedaan?",
+      "labelRequired": "Schrijf wat het was.",
+      "labelPlaceholder": "Boodschappen drie trappen op gedragen",
+      "intensity": "Gevoelde inspanning",
+      "intensityRequired": "Stel in hoe zwaar het voelde.",
+      "intensityUnset": "Niet ingesteld",
+      "anchorLow": "Vrijwel niets",
+      "anchorHigh": "Zo zwaar als het komt",
+      "intensityValueText": "{value} van {max} ({low} tot {high})",
+      "duration": "Duur (minuten)",
+      "durationPlaceholder": "bijv. 15",
+      "durationInvalid": "Vul de minuten in als geheel getal van minstens 1.",
+      "when": "Wanneer",
+      "note": "Notitie",
+      "notePlaceholder": "Nog iets om te noteren?",
+      "reset": "Formulier wissen"
+    },
+    "saveError": "Opslaan mislukt. Probeer het opnieuw."
   },
   "lifeEvents": {
     "title": "Levensgebeurtenis",

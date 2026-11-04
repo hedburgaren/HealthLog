@@ -672,6 +672,25 @@ async function main() {
   results.push(
     await rotateBytesColumn("LifeEvent", "noteEncrypted", prisma.lifeEvent),
   );
+  // The acute event's note and the exertion entry's label and note, the
+  // same class of free text. The label is NOT NULL, so every row rotates.
+  results.push(
+    await rotateBytesColumn("AcuteEvent", "noteEncrypted", prisma.acuteEvent),
+  );
+  results.push(
+    await rotateBytesColumn(
+      "ExertionEvent",
+      "labelEncrypted",
+      prisma.exertionEvent,
+    ),
+  );
+  results.push(
+    await rotateBytesColumn(
+      "ExertionEvent",
+      "noteEncrypted",
+      prisma.exertionEvent,
+    ),
+  );
 
   // ───── v1.19.0 ECG waveform (Bytes column) ─────
   // "waveformEncrypted" holds the JSON-encoded micro-volt sample array in the

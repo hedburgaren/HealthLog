@@ -1101,6 +1101,15 @@ model User {
   // move, a birth, a new job. Shared under the `profile` domain; never sent to
   // a model.
   lifeEvents                                LifeEvent[]
+  // Acute stressor events the person logs as they happen: a quarrel at home,
+  // a conflict at work, something frightening on the commute. Owner-only like
+  // life events; never sent to a model. The intensity series feeds the
+  // correlation matrix.
+  acuteEvents                               AcuteEvent[]
+  // Everyday exertion beyond the ordinary: the grocery haul up three flights
+  // of stairs, the unplanned long walk. Owner-only; never sent to a model.
+  // The intensity series feeds the correlation matrix.
+  exertionEvents                            ExertionEvent[]
   // v1.43 — biomarker aliases and the merge ledger (D1223), supplement
   // composition, Dawarich daily values, and the relation links that close
   // the remaining pairs of the relation matrix.
@@ -10193,6 +10202,77 @@ enum LifeEventPrecision {
   YEAR
 
   @@map("life_event_precision")
+}
+
+/// An acute stressor event the person logs close to when it happened: a
+/// quarrel at home, a conflict at work, something frightening on the
+/// commute. Not a life event anchor: this is the fine-grained, same-day
+/// grain, with a 0 to 10 intensity and an instant rather than a date. The
+/// intensity is what the correlation matrix reads ("an acute event today,
+/// then worse sleep or a symptom tomorrow"); the note is never sent to a
+/// model and never logged.
+model AcuteEvent {
+  id         String             @id @default(cuid())
+  userId     String             @map("user_id")
+  /// The kind of stressor, from a deliberately short list.
+  category   AcuteEventCategory
+  /// The instant it happened (UTC). Day grouping is the reader's concern.
+  occurredAt DateTime           @map("occurred_at")
+  /// 0-10, CHECK-constrained in the migration.
+  intensity  Int
+  /// An optional note in the person's own words, AES-256-GCM encrypted at
+  /// rest.
+  noteEncrypted Bytes?          @map("note_encrypted")
+  createdAt  DateTime           @default(now()) @map("created_at")
+  updatedAt  DateTime           @updatedAt @map("updated_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, occurredAt])
+  @@map("acute_events")
+}
+
+/// What kind of acute stressor. Few on purpose: the value of the row is the
+/// intensity over time, not a taxonomy.
+enum AcuteEventCategory {
+  HOME
+  WORK
+  COMMUTE
+  FINANCE
+  OTHER
+
+  @@map("acute_event_category")
+}
+
+/// Everyday physical exertion beyond the ordinary, logged by hand: the
+/// grocery haul up three flights of stairs, the unplanned long walk home.
+/// Deliberately NOT a workout: a workout is a planned session with a sport,
+/// distance and heart rate, and the manual workout form is built around
+/// those. This is the load the day put on the body anyway, with a perceived
+/// 0 to 10 intensity so a heavy carrying day can stand beside a training
+/// session in the correlation matrix. What it was is free text (the
+/// person's own words), AES-256-GCM encrypted at rest; never sent to a
+/// model.
+model ExertionEvent {
+  id             String   @id @default(cuid())
+  userId         String   @map("user_id")
+  /// What it was, in the person's own words, AES-256-GCM encrypted at rest.
+  labelEncrypted Bytes    @map("label_encrypted")
+  /// The instant it happened (UTC). Day grouping is the reader's concern.
+  occurredAt     DateTime @map("occurred_at")
+  /// 0-10 perceived exertion, CHECK-constrained in the migration.
+  intensity      Int
+  /// Minutes, when the person cared to say. NULL = untimed.
+  durationMin    Int?     @map("duration_min")
+  /// An optional note, AES-256-GCM encrypted at rest.
+  noteEncrypted  Bytes?   @map("note_encrypted")
+  createdAt      DateTime @default(now()) @map("created_at")
+  updatedAt      DateTime @updatedAt @map("updated_at")
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId, occurredAt])
+  @@map("exertion_events")
 }
 
 /// v1.42 — the fold repair has been through this account.

@@ -70,6 +70,8 @@ import {
   labResultBackupSchema,
 } from "@/lib/export/labs-backup-schema";
 import { lifeEventBackupSchema } from "@/lib/export/life-events-backup-schema";
+import { acuteEventBackupSchema } from "@/lib/export/acute-events-backup-schema";
+import { exertionEventBackupSchema } from "@/lib/export/exertion-backup-schema";
 import { measurementSchema } from "@/lib/export/measurements-backup-schema";
 import {
   customMedicationCategorySchema,
@@ -172,6 +174,10 @@ export const backupPayloadSchema = z
     symptomDefinitions: z.array(symptomDefinitionBackupSchema).default([]),
     // Defaulted: a file written before v1.42 carries no key.
     lifeEvents: z.array(lifeEventBackupSchema).default([]),
+    // Defaulted: a file written before the acute events and exertion
+    // features carry no key.
+    acuteEvents: z.array(acuteEventBackupSchema).default([]),
+    exertionEvents: z.array(exertionEventBackupSchema).default([]),
     allergies: z.array(allergyBackupSchema).default([]),
     familyHistory: z.array(familyHistoryBackupSchema).default([]),
     workouts: z.array(workoutBackupSchema).default([]),

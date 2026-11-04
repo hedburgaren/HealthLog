@@ -495,6 +495,26 @@ export const MEDICATION_COMPLIANCE_CHANNEL_KEY = "MEDICATION_COMPLIANCE";
 export const SYMPTOM_SEVERITY_CHANNEL_KEY = "SYMPTOM_SEVERITY";
 
 /**
+ * Acute stressor events as one BEHAVIOUR channel: the day's highest logged
+ * intensity (0-10), zero-filled between the first and the last logged day.
+ * A quarrel at home, a conflict at work, something frightening on the
+ * commute: the day's stress the person logged as it happened, so the
+ * question it answers is "an acute event today, then what tomorrow". Owned
+ * by the `timeline` module, like the life events it sits beside there; the
+ * note text never enters the matrix, only the intensity does.
+ */
+export const ACUTE_EVENT_CHANNEL_KEY = "ACUTE_EVENT";
+
+/**
+ * Everyday exertion as one BEHAVIOUR channel: the day's highest perceived
+ * intensity (0-10), zero-filled between the first and the last logged day.
+ * The grocery haul up three flights of stairs sits beside a training
+ * session here, as the load the day asked of the body. Owned by the
+ * `workouts` module.
+ */
+export const EXERTION_CHANNEL_KEY = "EXERTION";
+
+/**
  * v1.43 — the Dawarich movement context as two BEHAVIOUR channels: minutes
  * away from home and the day's total distance. Both share the `MOVEMENT`
  * family (a day far from home is a day with distance; pairing the two with
@@ -560,6 +580,8 @@ export const EXTENDED_CHANNEL_KEYS: readonly string[] = [
   ALCOHOL_CHANNEL_KEY,
   WORKOUT_MINUTES_CHANNEL_KEY,
   TRAINING_LOAD_CHANNEL_KEY,
+  ACUTE_EVENT_CHANNEL_KEY,
+  EXERTION_CHANNEL_KEY,
   ...EXTENDED_BEHAVIOUR_TYPES,
   ...EXTENDED_OUTCOME_TYPES,
   ...INDOOR_CLIMATE_TYPES,

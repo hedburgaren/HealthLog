@@ -286,6 +286,27 @@ export const cycleDependentKeys = [
  * the user is on the illness surface, and a bare invalidation would mark them
  * stale without refetching (the recurring v1.16.11/v1.29.1/v1.32.19 class).
  */
+/**
+ * Keys invalidated when an acute stressor event is logged, edited or
+ * deleted. The rows are owner-only, so the bundle is the `["timeline"]`
+ * root (their own keys ride under it) plus the open day: an acute event
+ * lands in the day's acuteEvents section in the same tick.
+ */
+export const acuteEventDependentKeys = [
+  queryKeys.timelineRoot(),
+  queryKeys.dayRoot(),
+];
+
+/**
+ * Keys invalidated when an everyday exertion entry is logged, edited or
+ * deleted. The `["workouts"]` root (their own keys ride under it) plus the
+ * open day, the same tick rule as the acute events' bundle.
+ */
+export const exertionDependentKeys = [
+  queryKeys.workouts(),
+  queryKeys.dayRoot(),
+];
+
 export const illnessDependentKeys = [
   queryKeys.illness(),
   queryKeys.dashboardSnapshot(),

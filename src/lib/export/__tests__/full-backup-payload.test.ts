@@ -471,6 +471,8 @@ function makePrisma() {
     ecgRecording: { findMany: vi.fn().mockResolvedValue([]) },
     symptomDefinition: { findMany: vi.fn().mockResolvedValue([]) },
     lifeEvent: { findMany: vi.fn().mockResolvedValue([]) },
+    acuteEvent: { findMany: vi.fn().mockResolvedValue([]) },
+    exertionEvent: { findMany: vi.fn().mockResolvedValue([]) },
     labResultDocumentLink: { findMany: vi.fn().mockResolvedValue([]) },
     encounterMedicationLink: { findMany: vi.fn().mockResolvedValue([]) },
     encounterVaccinationLink: { findMany: vi.fn().mockResolvedValue([]) },

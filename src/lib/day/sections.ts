@@ -66,6 +66,10 @@ export const DAY_SECTION_SHARE_DOMAIN: Readonly<
   cycle: "cycle",
   environment: null,
   lifeEvents: null,
+  // Acute events and exertion entries are owner-only rows the way life
+  // events are: no delegable route serves them, so no share shows them.
+  acuteEvents: null,
+  exertion: null,
 });
 
 /** The module that owns a section, from the one surface map. */

@@ -495,6 +495,11 @@ function everyEvent(): DayEvent[] {
     ...LIFE_EVENT_CATEGORIES.map((category, i) =>
       event("lifeEvent", `le-${i}`, `Ereignis ${i}`, category),
     ),
+    event("acuteEvent", "ae-1", "HOME", "4"),
+    event("acuteEvent", "ae-2", "COMMUTE", "7"),
+    event("acuteEvent", "ae-3", "OTHER", "1"),
+    event("exertion", "ex-1", "Treppen", "5"),
+    event("exertion", "ex-2", "Spaziergang", "2"),
   ];
   expect([...new Set(out.map((e) => e.kind))].sort()).toEqual(
     [...DAY_EVENT_KINDS].sort(),

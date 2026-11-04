@@ -8,6 +8,7 @@ import {
   CalendarCheck,
   CalendarHeart,
   ChevronRight,
+  Dumbbell,
   FileText,
   FlaskConical,
   Flag,
@@ -20,6 +21,7 @@ import {
   Stethoscope,
   Syringe,
   Thermometer,
+  Zap,
   type LucideIcon,
 } from "lucide-react";
 
@@ -53,6 +55,7 @@ import {
   type DayValueTile,
 } from "./day-values-model";
 import {
+  ACUTE_EVENT_CATEGORY_KEY,
   ALLERGY_SEVERITY_KEY,
   ASSESSMENT_BAND_KEY,
   ASSESSMENT_INSTRUMENT_KEY,
@@ -224,6 +227,12 @@ export function dayTitle(kind: string, title: string, t: Translate): string {
       const key = keyOf(WORKOUT_SPORT_KEY, title);
       return key ? t(key) : title;
     }
+    case "acuteEvent": {
+      const key = keyOf(ACUTE_EVENT_CATEGORY_KEY, title);
+      return key ? t(key) : title;
+    }
+    // An exertion entry's title is the person's own words for what it was;
+    // it passes through like a symptom's or a life event's name.
     default:
       return title;
   }
@@ -264,6 +273,9 @@ export function dayMeta(
     }
     case "symptom":
       return t("symptoms.intensityPill", { value: meta });
+    case "acuteEvent":
+    case "exertion":
+      return t("day.event.intensityPill", { value: meta });
     case "allergyOnset": {
       const key = keyOf(ALLERGY_SEVERITY_KEY, meta);
       return key ? t(key) : null;
@@ -587,6 +599,8 @@ const EVENT_ICON: Record<DayEventKind, LucideIcon> = {
   workout: Footprints,
   cycleDayLog: CalendarHeart,
   lifeEvent: Flag,
+  acuteEvent: Zap,
+  exertion: Dumbbell,
 };
 
 /**

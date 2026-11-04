@@ -347,6 +347,11 @@ export const ENCRYPTED_COLUMNS: readonly EncryptedColumn[] = [
   // v1.42 — a life event's title and note, in the person's own words.
   { model: "LifeEvent", field: "titleEncrypted", kind: "bytes" },
   { model: "LifeEvent", field: "noteEncrypted", kind: "bytes" },
+  // An acute event's note and an exertion entry's label and note, in the
+  // person's own words. Same class as the life-event columns beside them.
+  { model: "AcuteEvent", field: "noteEncrypted", kind: "bytes" },
+  { model: "ExertionEvent", field: "labelEncrypted", kind: "bytes" },
+  { model: "ExertionEvent", field: "noteEncrypted", kind: "bytes" },
 
   // ───── v1.19.0 ECG waveform (Bytes column) ─────
   { model: "EcgRecording", field: "waveformEncrypted", kind: "bytes" },
@@ -628,6 +633,7 @@ export function encryptedColumnKey(c: EncryptedColumn): string {
  * set from `schema.prisma` and fails when it drifts.
  */
 export const UPDATED_AT_MODELS: ReadonlySet<string> = new Set([
+  "AcuteEvent",
   "Allergy",
   "Biomarker",
   "CoachConversation",
@@ -643,6 +649,7 @@ export const UPDATED_AT_MODELS: ReadonlySet<string> = new Set([
   "Encounter",
   "EnvironmentContext",
   "EnvironmentTravelLocation",
+  "ExertionEvent",
   "ExtractedFact",
   "FamilyHistoryEntry",
   "FitbitConnection",

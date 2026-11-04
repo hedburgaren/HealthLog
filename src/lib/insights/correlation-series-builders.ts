@@ -253,6 +253,48 @@ export function buildSymptomEventDailySeries(args: {
 
 // ─── v1.44 — the extended channel families ─────────────────────────────────
 
+// ─── Acute stressors and everyday exertion ──────────────────────────────────
+
+/** One logged acute or exertion event, as the daily builders read it. */
+export interface IntensityEventRow {
+  at: Date;
+  intensity: number;
+}
+
+/**
+ * One BEHAVIOUR series from acute stressor or everyday exertion events: the
+ * day's HIGHEST intensity (0-10), zero-filled between the first and the
+ * last logged day. Inside that span the person was logging this kind of
+ * day, so a quiet day is a real zero; outside it nothing says whether they
+ * were logging at all. One logged day yields a one-point series, which the
+ * n >= 20 floor then drops. Two events in a day count as the heavier one.
+ * Pure.
+ */
+export function buildIntensityEventDailySeries(args: {
+  key: string;
+  label?: string;
+  events: readonly IntensityEventRow[];
+  tz: string;
+}): NamedSeries {
+  const { key, label, events, tz } = args;
+  const byDay = new Map<string, number>();
+  for (const event of events) {
+    if (!Number.isFinite(event.intensity)) continue;
+    const day = dayKey(event.at, tz);
+    const prev = byDay.get(day);
+    byDay.set(
+      day,
+      prev == null ? event.intensity : Math.max(prev, event.intensity),
+    );
+  }
+  return {
+    key,
+    ...(label !== undefined ? { label } : {}),
+    role: "behaviour",
+    points: zeroFillSpan(byDay),
+  };
+}
+
 /** One stored nutrient day total (one row per day, nutrient and source). */
 export interface NutrientDayRow {
   day: string;

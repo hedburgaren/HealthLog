@@ -503,7 +503,11 @@
       "symptom": "Symptom",
       "symptomDescription": "One of your own symptoms, with how strong",
       "lifeEventDescription": "A move, a birth, a new job",
-      "lifeEvent": "Life event"
+      "lifeEvent": "Life event",
+      "acuteEventDescription": "Something that happened and hit hard",
+      "acuteEvent": "Acute event",
+      "exertionDescription": "Everyday load beyond the ordinary",
+      "exertion": "Exertion"
     },
     "cycle": "Cycle",
     "labs": "Labs",
@@ -792,7 +796,9 @@
     },
     "greetingOnly": "{greeting}.",
     "welcomeNew": "Welcome.",
-    "welcomeNewWithName": "Welcome, {name}."
+    "welcomeNewWithName": "Welcome, {name}.",
+    "quickAddAcuteEvent": "Log acute event",
+    "quickAddExertion": "Log exertion"
   },
   "measurements": {
     "title": "Measurements",
@@ -2768,7 +2774,9 @@
         "STATE_OF_MIND_VALENCE": "logged state of mind",
         "INDOOR_CO2": "indoor CO2",
         "INDOOR_TEMPERATURE": "room temperature",
-        "INDOOR_HUMIDITY": "room humidity"
+        "INDOOR_HUMIDITY": "room humidity",
+        "ACUTE_EVENT": "acute events",
+        "EXERTION": "everyday exertion"
       },
       "daily": {
         "high": "Higher {behaviour} tends to go with {direction} next-day {outcome} in your data. It is a pattern to watch, not a cause.",
@@ -13506,7 +13514,8 @@
       "paused": "{label} paused",
       "resumed": "{label} resumed",
       "illnessBegan": "{label} began",
-      "illnessResolved": "{label} resolved"
+      "illnessResolved": "{label} resolved",
+      "intensityPill": "{value}/10"
     },
     "pickDate": "Choose a date",
     "pickerTitle": "Go to a day",
@@ -13754,6 +13763,53 @@
     "legendLabValue": "Lab value, as measured",
     "legendLabOutside": "Outside the reference range",
     "legendLabRange": "Reference range"
+  },
+  "acuteEvents": {
+    "category": {
+      "HOME": "At home",
+      "WORK": "At work",
+      "COMMUTE": "On the move",
+      "FINANCE": "Money",
+      "OTHER": "Something else"
+    },
+    "entry": {
+      "sheetDescription": "What happened, how bad it was, when.",
+      "category": "What kind was it?",
+      "categoryRequired": "Choose what kind it was.",
+      "intensity": "Intensity",
+      "intensityRequired": "Set how strong it was.",
+      "intensityUnset": "Not set",
+      "anchorLow": "Barely there",
+      "anchorHigh": "As bad as it gets",
+      "intensityValueText": "{value} of {max} ({low} to {high})",
+      "when": "When",
+      "note": "Note",
+      "notePlaceholder": "What happened, in your own words?",
+      "reset": "Reset form"
+    },
+    "saveError": "Could not save. Try again."
+  },
+  "exertion": {
+    "entry": {
+      "sheetDescription": "What it was, how heavy it felt, how long it took.",
+      "label": "What did you do?",
+      "labelRequired": "Write what it was.",
+      "labelPlaceholder": "Grocery haul up three flights of stairs",
+      "intensity": "Perceived exertion",
+      "intensityRequired": "Set how heavy it felt.",
+      "intensityUnset": "Not set",
+      "anchorLow": "Nothing to it",
+      "anchorHigh": "As heavy as it gets",
+      "intensityValueText": "{value} of {max} ({low} to {high})",
+      "duration": "Duration (minutes)",
+      "durationPlaceholder": "e.g. 15",
+      "durationInvalid": "Enter the minutes as a whole number of at least 1.",
+      "when": "When",
+      "note": "Note",
+      "notePlaceholder": "Anything else to note?",
+      "reset": "Reset form"
+    },
+    "saveError": "Could not save. Try again."
   },
   "lifeEvents": {
     "title": "Life event",

@@ -503,7 +503,11 @@
       "symptom": "Symptom",
       "symptomDescription": "Eines deiner eigenen Symptome, mit Stärke",
       "lifeEventDescription": "Umzug, Geburt, neue Stelle",
-      "lifeEvent": "Lebensereignis"
+      "lifeEvent": "Lebensereignis",
+      "acuteEventDescription": "Etwas, das passiert ist und getroffen hat",
+      "acuteEvent": "Akutes Ereignis",
+      "exertionDescription": "Alltagsbelastung über das Übliche hinaus",
+      "exertion": "Anstrengung"
     },
     "cycle": "Zyklus",
     "labs": "Laborwerte",
@@ -792,7 +796,9 @@
     },
     "greetingOnly": "{greeting}.",
     "welcomeNew": "Willkommen.",
-    "welcomeNewWithName": "Willkommen, {name}."
+    "welcomeNewWithName": "Willkommen, {name}.",
+    "quickAddAcuteEvent": "Akutes Ereignis loggen",
+    "quickAddExertion": "Anstrengung loggen"
   },
   "measurements": {
     "title": "Messungen",
@@ -2768,7 +2774,9 @@
         "STATE_OF_MIND_VALENCE": "die erfasste Gemütslage",
         "INDOOR_CO2": "der CO2-Wert im Raum",
         "INDOOR_TEMPERATURE": "die Raumtemperatur",
-        "INDOOR_HUMIDITY": "die Luftfeuchtigkeit im Raum"
+        "INDOOR_HUMIDITY": "die Luftfeuchtigkeit im Raum",
+        "ACUTE_EVENT": "akute Ereignisse",
+        "EXERTION": "Alltagsanstrengung"
       },
       "daily": {
         "high": "Wenn {behaviour} höher liegt, fällt {outcome} am Folgetag in deinen Daten tendenziell {direction} aus. Das ist ein Muster, das Beachtung verdient, keine Ursache.",
@@ -13506,7 +13514,8 @@
       "paused": "{label} pausiert",
       "resumed": "{label} wieder aufgenommen",
       "illnessBegan": "{label} begann",
-      "illnessResolved": "{label} abgeklungen"
+      "illnessResolved": "{label} abgeklungen",
+      "intensityPill": "{value}/10"
     },
     "pickDate": "Datum wählen",
     "pickerTitle": "Zu einem Tag springen",
@@ -13754,6 +13763,53 @@
     "legendLabValue": "Laborwert, wie gemessen",
     "legendLabOutside": "Außerhalb des Referenzbereichs",
     "legendLabRange": "Referenzbereich"
+  },
+  "acuteEvents": {
+    "category": {
+      "HOME": "Zu Hause",
+      "WORK": "Bei der Arbeit",
+      "COMMUTE": "Unterwegs",
+      "FINANCE": "Geld",
+      "OTHER": "Etwas anderes"
+    },
+    "entry": {
+      "sheetDescription": "Was passiert ist, wie schlimm es war, wann.",
+      "category": "Was war es?",
+      "categoryRequired": "Wähle, was es war.",
+      "intensity": "Intensität",
+      "intensityRequired": "Setze, wie stark es war.",
+      "intensityUnset": "Nicht gesetzt",
+      "anchorLow": "Kaum spürbar",
+      "anchorHigh": "So schlimm wie es kommt",
+      "intensityValueText": "{value} von {max} ({low} bis {high})",
+      "when": "Wann",
+      "note": "Notiz",
+      "notePlaceholder": "Was passiert ist, in deinen Worten?",
+      "reset": "Formular zurücksetzen"
+    },
+    "saveError": "Speichern fehlgeschlagen. Versuche es erneut."
+  },
+  "exertion": {
+    "entry": {
+      "sheetDescription": "Was es war, wie schwer es sich anfühlte, wie lange es dauerte.",
+      "label": "Was hast du gemacht?",
+      "labelRequired": "Schreibe, was es war.",
+      "labelPlaceholder": "Einkauf drei Treppen hoch getragen",
+      "intensity": "Empfundene Anstrengung",
+      "intensityRequired": "Setze, wie schwer es sich anfühlte.",
+      "intensityUnset": "Nicht gesetzt",
+      "anchorLow": "Gering",
+      "anchorHigh": "So schwer wie es kommt",
+      "intensityValueText": "{value} von {max} ({low} bis {high})",
+      "duration": "Dauer (Minuten)",
+      "durationPlaceholder": "z. B. 15",
+      "durationInvalid": "Gib die Minuten als ganze Zahl von mindestens 1 ein.",
+      "when": "Wann",
+      "note": "Notiz",
+      "notePlaceholder": "Sonst noch etwas?",
+      "reset": "Formular zurücksetzen"
+    },
+    "saveError": "Speichern fehlgeschlagen. Versuche es erneut."
   },
   "lifeEvents": {
     "title": "Lebensereignis",

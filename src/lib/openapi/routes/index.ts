@@ -29,6 +29,8 @@ import {
 } from "./account-sharing";
 import { activityPaths } from "./activity";
 import { provenancePaths } from "./provenance";
+import { acuteEventPaths } from "./acute-events";
+import { exertionPaths } from "./exertion";
 import { adminDiagnosticPaths, adminInvitePaths } from "./admin";
 import { aiUsagePaths } from "./ai-usage";
 import { dawarichPaths } from "./dawarich";
@@ -107,6 +109,8 @@ const registeredPaths: NonNullable<ZodOpenApiObject["paths"]> = {
   ...syncPaths,
   ...measurementPaths,
   ...workoutPaths,
+  ...acuteEventPaths,
+  ...exertionPaths,
   ...activityPaths,
   ...provenancePaths,
   ...devicePaths,

@@ -46,6 +46,7 @@ export const ERROR_CODE_CATALOGUE: Readonly<Record<string, readonly string[]>> =
       "account.deletion.not_pending",
     ],
     activity: ["activity.calendar.future_date", "activity.calendar.too_old"],
+    acuteEvents: ["acuteEvents.event.notFound", "acuteEvents.invalid"],
     admin: ["admin.users.delete.managed_profile", "admin.users.delete.self"],
     ai: [
       "ai.budget.exceeded",
@@ -228,6 +229,7 @@ export const ERROR_CODE_CATALOGUE: Readonly<Record<string, readonly string[]>> =
       "environment.travel.not_found",
       "environment.travel_suggestion.not_found",
     ],
+    exertion: ["exertion.event.notFound", "exertion.invalid"],
     export: ["export.selection.empty", "export.selection.unknown_leaf"],
     familyHistory: ["familyHistory.invalid"],
     feedback: ["feedback.body.invalid"],

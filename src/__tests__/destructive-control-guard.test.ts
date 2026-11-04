@@ -389,6 +389,32 @@ const REGISTRY: DestructiveEntry[] = [
     confirm: ["AlertDialog"],
   },
   {
+    file: "components/acute-events/use-acute-events.ts",
+    destroys: "one logged acute stressor event",
+    recovery: "permanent",
+    confirm: [],
+    unconfirmed: [
+      {
+        control: "DELETE /api/acute-events/{id}",
+        reason:
+          "The mutation exists for the future list sheet; no view calls it yet, so no confirmation control renders anywhere. The route is owner-only (bare requireAuth, no delegate reaches these rows) and audited without the note text.",
+      },
+    ],
+  },
+  {
+    file: "components/exertion/use-exertion.ts",
+    destroys: "one logged everyday exertion entry",
+    recovery: "permanent",
+    confirm: [],
+    unconfirmed: [
+      {
+        control: "DELETE /api/exertion/{id}",
+        reason:
+          "The mutation exists for the future list sheet; no view calls it yet, so no confirmation control renders anywhere. The route is owner-only (bare requireAuth, no delegate reaches these rows) and audited without the label or note text.",
+      },
+    ],
+  },
+  {
     file: "components/labs/biomarker-manager.tsx",
     destroys: "a biomarker AND every lab reading recorded against it",
     recovery: "permanent",

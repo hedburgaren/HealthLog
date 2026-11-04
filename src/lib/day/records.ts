@@ -1152,6 +1152,80 @@ async function lifeEventsPart(frame: DayFrame): Promise<SectionPart> {
   return out;
 }
 
+/** The day's acute stressor events, earliest first. */
+async function acuteEventsPart(frame: DayFrame): Promise<SectionPart> {
+  const rows = await prisma.acuteEvent.findMany({
+    where: {
+      userId: frame.userId,
+      occurredAt: { gte: frame.dayStart, lt: frame.dayEnd },
+    },
+    select: {
+      id: true,
+      category: true,
+      occurredAt: true,
+      intensity: true,
+      noteEncrypted: true,
+    },
+    orderBy: { occurredAt: "asc" },
+  });
+  return {
+    running: [],
+    // The title carries the raw category code: the reader's language words
+    // it, the way a cycle day-log's flow code is worded. The intensity is
+    // the meta. The note is decrypted for the owner's own view only; the
+    // model projection drops the whole section before anything leaves.
+    events: rows.map((row) =>
+      event({
+        at: row.occurredAt.toISOString(),
+        kind: "acuteEvent",
+        section: "acuteEvents",
+        id: row.id,
+        title: row.category,
+        meta: String(row.intensity),
+        note: openText(row.noteEncrypted, "acute event note"),
+        href: null,
+      }),
+    ),
+  };
+}
+
+/** The day's everyday exertion entries, earliest first. */
+async function exertionPart(frame: DayFrame): Promise<SectionPart> {
+  const rows = await prisma.exertionEvent.findMany({
+    where: {
+      userId: frame.userId,
+      occurredAt: { gte: frame.dayStart, lt: frame.dayEnd },
+    },
+    select: {
+      id: true,
+      labelEncrypted: true,
+      occurredAt: true,
+      intensity: true,
+      durationMin: true,
+      noteEncrypted: true,
+    },
+    orderBy: { occurredAt: "asc" },
+  });
+  return {
+    running: [],
+    // The title is the person's own words for what it was, the same class of
+    // title the symptom occurrences carry; the model projection fences it as
+    // person text. The meta is the intensity.
+    events: rows.map((row) =>
+      event({
+        at: row.occurredAt.toISOString(),
+        kind: "exertion",
+        section: "exertion",
+        id: row.id,
+        title: openText(row.labelEncrypted, "exertion label") ?? "",
+        meta: String(row.intensity),
+        note: openText(row.noteEncrypted, "exertion note"),
+        href: null,
+      }),
+    ),
+  };
+}
+
 /** The record-side reader of each section; values and sleep are elsewhere. */
 export const RECORD_SECTION_READERS: Readonly<
   Partial<Record<DaySectionKey, (frame: DayFrame) => Promise<SectionPart>>>
@@ -1171,4 +1245,6 @@ export const RECORD_SECTION_READERS: Readonly<
   cycle: cyclePart,
   environment: environmentPart,
   lifeEvents: lifeEventsPart,
+  acuteEvents: acuteEventsPart,
+  exertion: exertionPart,
 });

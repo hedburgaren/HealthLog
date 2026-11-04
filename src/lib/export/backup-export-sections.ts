@@ -49,6 +49,14 @@ import {
   buildLifeEventsBackupSection,
   countLifeEventsBackupSection,
 } from "@/lib/export/life-events-backup";
+import {
+  buildAcuteEventsBackupSection,
+  countAcuteEventsBackupSection,
+} from "@/lib/export/acute-events-backup";
+import {
+  buildExertionBackupSection,
+  countExertionBackupSection,
+} from "@/lib/export/exertion-backup";
 import { buildMeasurementsBackupPart } from "@/lib/export/measurements-backup";
 import { buildMedicationsBackupPart } from "@/lib/export/medications-backup";
 import { buildMoodBackupPart } from "@/lib/export/mood-backup";
@@ -383,6 +391,30 @@ export const BACKUP_EXPORT_SECTIONS: readonly BackupExportSection[] = [
     },
   },
   {
+    // The person's acute stressor events.
+    name: "acuteEvents",
+    build: async (ctx) => {
+      const acuteEvents = await buildAcuteEventsBackupSection(
+        ctx.prisma,
+        ctx.userId,
+        { purpose: ctx.purpose },
+      );
+      return part(acuteEvents, countAcuteEventsBackupSection(acuteEvents));
+    },
+  },
+  {
+    // The person's everyday exertion entries.
+    name: "exertion",
+    build: async (ctx) => {
+      const exertion = await buildExertionBackupSection(
+        ctx.prisma,
+        ctx.userId,
+        { purpose: ctx.purpose },
+      );
+      return part(exertion, countExertionBackupSection(exertion));
+    },
+  },
+  {
     // The five relation links that close the relation matrix.
     name: "relationLinks",
     build: async (ctx) => {
@@ -425,5 +457,7 @@ export const BACKUP_EXPORT_COUNT_ORDER: readonly string[] = [
   "ecg",
   "symptoms",
   "lifeEvents",
+  "acuteEvents",
+  "exertion",
   "relationLinks",
 ];

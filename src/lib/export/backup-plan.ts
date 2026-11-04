@@ -114,6 +114,8 @@ export const BACKED_UP_MODELS = [
   // v1.42 — the person's life events, the timeline's anchors. Written by the
   // person and held nowhere else.
   "LifeEvent",
+  "AcuteEvent",
+  "ExertionEvent",
   "EcgRecording",
   "UserHealthProfile",
   "HealthProfileFactRevision",
@@ -304,6 +306,10 @@ export const BACKUP_WRITER_FILES: readonly string[] = [
   "src/lib/export/symptoms-backup.ts",
   // The person's life events, both ends beside each other (v1.42).
   "src/lib/export/life-events-backup.ts",
+  // The person's acute stressor events and everyday exertion entries, both
+  // ends beside each other, each through its OWN delegate.
+  "src/lib/export/acute-events-backup.ts",
+  "src/lib/export/exertion-backup.ts",
   // The five relation links that close the relation matrix (v1.43), both
   // ends beside each other, each through its OWN delegate.
   "src/lib/export/relation-links-backup.ts",
@@ -374,6 +380,8 @@ export const TWO_ENDED_MODELS = [
   "SymptomDefinition",
   "SymptomEvent",
   "LifeEvent",
+  "AcuteEvent",
+  "ExertionEvent",
   "UserHealthProfile",
   "HealthProfileFactRevision",
   "CycleProfile",

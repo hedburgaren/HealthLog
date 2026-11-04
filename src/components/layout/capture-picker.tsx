@@ -3,11 +3,13 @@
 import { useState } from "react";
 import {
   Activity,
+  Dumbbell,
   Flag,
   Footprints,
   Pill,
   Stethoscope,
   Waves,
+  Zap,
 } from "lucide-react";
 
 import { ResponsiveSheet } from "@/components/ui/responsive-sheet";
@@ -19,6 +21,8 @@ import {
   SymptomEntryForm,
 } from "@/components/dashboard/quick-entry-forms.lazy";
 import { LifeEventForm } from "@/components/timeline/life-event-form.lazy";
+import { AcuteEventForm } from "@/components/acute-events/acute-event-form.lazy";
+import { ExertionForm } from "@/components/exertion/exertion-form.lazy";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -52,6 +56,10 @@ import {
  *                   v1.40; rides the illness module)
  *   - Life event  → `<LifeEventForm>` (v1.42; rides the opt-in timeline
  *                   module, own record only)
+ *   - Acute event → `<AcuteEventForm>` (the day's stressors; rides the
+ *                   timeline module, own record only)
+ *   - Exertion    → `<ExertionForm>` (everyday exertion beyond the
+ *                   ordinary; rides the workouts module, own record only)
  *
  * The picker reuses each existing capture component rather than
  * rebuilding parallel forms.
@@ -68,7 +76,14 @@ import {
  */
 
 export type CaptureKind =
-  "measurement" | "medication" | "mood" | "symptom" | "workout" | "lifeEvent";
+  | "measurement"
+  | "medication"
+  | "mood"
+  | "symptom"
+  | "workout"
+  | "lifeEvent"
+  | "acuteEvent"
+  | "exertion";
 
 /**
  * The section each capture surface writes to.
@@ -96,6 +111,10 @@ const CAPTURE_KIND_DOMAIN: Readonly<Record<CaptureKind, ShareDomain | null>> = {
   // v1.42 — life events are written by the record's owner only until their
   // writes join the audited delegable list; a delegate is never offered one.
   lifeEvent: null,
+  // Acute events and exertion entries are written by the record's owner
+  // only, the life-event posture: their routes take bare `requireAuth()`.
+  acuteEvent: null,
+  exertion: null,
 };
 
 /** The order the chooser lists them in. */
@@ -106,6 +125,8 @@ export const CAPTURE_KIND_ORDER: ReadonlyArray<CaptureKind> = [
   "symptom",
   "workout",
   "lifeEvent",
+  "acuteEvent",
+  "exertion",
 ];
 
 /**
@@ -260,6 +281,18 @@ export function CapturePicker({
       description: t("nav.capture.lifeEventDescription"),
       icon: Flag,
     },
+    {
+      kind: "acuteEvent",
+      label: t("nav.capture.acuteEvent"),
+      description: t("nav.capture.acuteEventDescription"),
+      icon: Zap,
+    },
+    {
+      kind: "exertion",
+      label: t("nav.capture.exertion"),
+      description: t("nav.capture.exertionDescription"),
+      icon: Dumbbell,
+    },
   ];
   const options = allOptions.filter((opt) => offered.includes(opt.kind));
 
@@ -272,6 +305,8 @@ export function CapturePicker({
     symptom: t("dashboard.quickAddSymptom"),
     workout: t("dashboard.quickAddWorkout"),
     lifeEvent: t("dashboard.quickAddLifeEvent"),
+    acuteEvent: t("dashboard.quickAddAcuteEvent"),
+    exertion: t("dashboard.quickAddExertion"),
   };
   // `openKind === null` keeps the form sheet closed (the title is unread
   // then); the mood label is the harmless default.
@@ -355,6 +390,22 @@ export function CapturePicker({
         )}
         {openKind === "lifeEvent" && (
           <LifeEventForm
+            onSuccess={closeForm}
+            onCancel={closeForm}
+            footerSlot={footerEl}
+            defaultDate={defaultDate}
+          />
+        )}
+        {openKind === "acuteEvent" && (
+          <AcuteEventForm
+            onSuccess={closeForm}
+            onCancel={closeForm}
+            footerSlot={footerEl}
+            defaultDate={defaultDate}
+          />
+        )}
+        {openKind === "exertion" && (
+          <ExertionForm
             onSuccess={closeForm}
             onCancel={closeForm}
             footerSlot={footerEl}

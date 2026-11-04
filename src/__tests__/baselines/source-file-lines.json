@@ -1,7 +1,7 @@
 {
   "$comment": "Production files over 800 lines and their length. Maintained by src/__tests__/source-size-ratchet.test.ts.",
   "count": 84,
-  "total": 94292,
+  "total": 94457,
   "entries": {
     "app/medications/page-client.tsx": 839,
     "components/charts/mood-chart.tsx": 1166,
@@ -41,8 +41,8 @@
     "lib/daily/today-overview.ts": 838,
     "lib/dashboard-layout.ts": 971,
     "lib/dashboard/snapshot.ts": 1550,
-    "lib/day/records.ts": 1174,
-    "lib/export/backup-plan.ts": 853,
+    "lib/day/records.ts": 1250,
+    "lib/export/backup-plan.ts": 861,
     "lib/export/coach-backup.ts": 1070,
     "lib/export/profile-backup.ts": 1019,
     "lib/fitbit/client.ts": 1262,
@@ -57,8 +57,8 @@
     "lib/import/unzip-export-xml.ts": 825,
     "lib/insights/comprehensive-aggregator.ts": 868,
     "lib/insights/comprehensive-generate.ts": 1674,
-    "lib/insights/correlation-channel-series.ts": 1339,
-    "lib/insights/correlation-discovery.ts": 1240,
+    "lib/insights/correlation-channel-series.ts": 1398,
+    "lib/insights/correlation-discovery.ts": 1262,
     "lib/insights/correlations.ts": 1026,
     "lib/insights/features.ts": 1875,
     "lib/insights/mood-aggregates.ts": 1053,
@@ -87,5 +87,9 @@
     "lib/withings/sync-sleep.ts": 884,
     "lib/withings/sync.ts": 933,
     "proxy.ts": 870
-  }
+  },
+  "lib/day/records.ts": 1250,
+  "lib/export/backup-plan.ts": 861,
+  "lib/insights/correlation-channel-series.ts": 1391,
+  "lib/insights/correlation-discovery.ts": 1262
 }

@@ -19,6 +19,8 @@ import {
   SymptomEntryForm,
 } from "@/components/dashboard/quick-entry-forms.lazy";
 import { LifeEventForm } from "@/components/timeline/life-event-form.lazy";
+import { AcuteEventForm } from "@/components/acute-events/acute-event-form.lazy";
+import { ExertionForm } from "@/components/exertion/exertion-form.lazy";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -43,6 +45,8 @@ export type QuickEntryDialog =
   | "symptom"
   | "workout"
   | "lifeEvent"
+  | "acuteEvent"
+  | "exertion"
   | null;
 
 /**
@@ -60,6 +64,10 @@ const QUICK_ENTRY_DOMAIN: Readonly<
   workout: null,
   // v1.42 — life events are written in one's own record only.
   lifeEvent: null,
+  // Acute events and exertion entries are written in one's own record only,
+  // the life-event posture: their routes take bare `requireAuth()`.
+  acuteEvent: null,
+  exertion: null,
 };
 
 /**
@@ -181,6 +189,10 @@ export function QuickEntrySheets({
   );
   const [lifeEventFooterEl, setLifeEventFooterEl] =
     useState<HTMLDivElement | null>(null);
+  const [acuteEventFooterEl, setAcuteEventFooterEl] =
+    useState<HTMLDivElement | null>(null);
+  const [exertionFooterEl, setExertionFooterEl] =
+    useState<HTMLDivElement | null>(null);
   // v1.11.3 — when an open quick-entry sheet is dismissed with
   // unsaved input, hold the close in this flag and surface a confirm
   // instead of nulling the dialog outright. Cleared once the user
@@ -293,6 +305,41 @@ export function QuickEntrySheets({
             onSuccess={onClose}
             onCancel={onClose}
             footerSlot={lifeEventFooterEl}
+          />
+        )}
+      </ResponsiveSheet>
+
+      {/* An acute stressor event and an everyday exertion entry. Mounted
+          only while open, so every opening starts from an empty draft on
+          "now". */}
+      <ResponsiveSheet
+        open={openSheet === "acuteEvent"}
+        onOpenChange={handleQuickEntryOpenChange}
+        title={t("dashboard.quickAddAcuteEvent")}
+        description={t("acuteEvents.entry.sheetDescription")}
+        footer={<div ref={setAcuteEventFooterEl} className="flex w-full" />}
+      >
+        {openSheet === "acuteEvent" && (
+          <AcuteEventForm
+            onSuccess={onClose}
+            onCancel={onClose}
+            footerSlot={acuteEventFooterEl}
+          />
+        )}
+      </ResponsiveSheet>
+
+      <ResponsiveSheet
+        open={openSheet === "exertion"}
+        onOpenChange={handleQuickEntryOpenChange}
+        title={t("dashboard.quickAddExertion")}
+        description={t("exertion.entry.sheetDescription")}
+        footer={<div ref={setExertionFooterEl} className="flex w-full" />}
+      >
+        {openSheet === "exertion" && (
+          <ExertionForm
+            onSuccess={onClose}
+            onCancel={onClose}
+            footerSlot={exertionFooterEl}
           />
         )}
       </ResponsiveSheet>

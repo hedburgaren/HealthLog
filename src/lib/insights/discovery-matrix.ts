@@ -36,10 +36,12 @@
  */
 import type { MeasurementType } from "@/generated/prisma/client";
 import {
+  ACUTE_EVENT_CHANNEL_KEY,
   ALCOHOL_CHANNEL_KEY,
   DISCOVERY_BEHAVIOURS,
   DISCOVERY_OUTCOMES,
   discoveryMeasurementTypes,
+  EXERTION_CHANNEL_KEY,
   EXTENDED_BEHAVIOUR_TYPES,
   EXTENDED_OUTCOME_TYPES,
   HYDRATION_CHANNEL_KEY,
@@ -53,8 +55,10 @@ import {
 } from "@/lib/insights/correlation-discovery";
 import {
   buildMeasurementDailySeries,
+  fetchAcuteEventSeries,
   fetchAlcoholSeries,
   fetchComplianceSeries,
+  fetchExertionSeries,
   fetchIndoorClimateSeries,
   fetchNutrientSeries,
   fetchTrainingSeries,
@@ -180,6 +184,10 @@ export interface DiscoveryMatrixDiagnostics {
   trainingDays: number;
   /** Nights summed across the room-climate channels. */
   indoorNights: number;
+  /** Days in the acute-stressor behaviour series. */
+  acuteEventDays: number;
+  /** Days in the everyday-exertion behaviour series. */
+  exertionDays: number;
 }
 
 export interface DiscoveryMatrix {
@@ -341,6 +349,8 @@ export async function assembleDiscoveryMatrix(
     alcoholSeries,
     trainingSeries,
     indoorSeries,
+    acuteEventSeries,
+    exertionSeries,
   ] = await Promise.all([
     readMeasurementDaily(userId, tz, since, measurementTypes, fetchMode),
     readMood(userId, tz, since, opts.includeMoodFactors === true),
@@ -380,6 +390,20 @@ export async function assembleDiscoveryMatrix(
     visible(INDOOR_CLIMATE_TYPES[0])
       ? fetchIndoorClimateSeries(userId, tz, since)
       : Promise.resolve([] as NamedSeries[]),
+    visible(ACUTE_EVENT_CHANNEL_KEY)
+      ? fetchAcuteEventSeries(userId, tz, since)
+      : Promise.resolve({
+          key: ACUTE_EVENT_CHANNEL_KEY,
+          role: "behaviour",
+          points: [],
+        } as NamedSeries),
+    visible(EXERTION_CHANNEL_KEY)
+      ? fetchExertionSeries(userId, tz, since)
+      : Promise.resolve({
+          key: EXERTION_CHANNEL_KEY,
+          role: "behaviour",
+          points: [],
+        } as NamedSeries),
   ]);
 
   const { factorSeries } = mood;
@@ -432,6 +456,11 @@ export async function assembleDiscoveryMatrix(
   series.push(...nutrientSeries);
   if (alcoholSeries) series.push(alcoholSeries);
   series.push(...trainingSeries, ...indoorSeries);
+  // The acute-stressor and everyday-exertion behaviour channels fold after
+  // every earlier family so the ranking of the pairs that existed before is
+  // unchanged on a tie. Both pair D → D+1 like every behaviour; both read
+  // only the instant and the intensity, never the free text.
+  series.push(acuteEventSeries, exertionSeries);
   // A factor is plausibly both a lag source ("rated work today → next-day
   // sleep") and a lag target ("steps today → next-day rated energy"), so it
   // enters as both roles. The engine skips self-pairs — every factor shares
@@ -481,6 +510,8 @@ export async function assembleDiscoveryMatrix(
       alcoholDays: alcoholSeries?.points.length ?? 0,
       trainingDays: daysIn(trainingSeries),
       indoorNights: daysIn(indoorSeries),
+      acuteEventDays: acuteEventSeries.points.length,
+      exertionDays: exertionSeries.points.length,
     },
   };
 }

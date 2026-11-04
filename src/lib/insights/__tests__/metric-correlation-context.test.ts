@@ -18,6 +18,8 @@ vi.mock("@/lib/db", () => ({
     dawarichDay: { findMany: vi.fn(async () => []) },
     customMetric: { findMany: vi.fn() },
     symptomDefinition: { findMany: vi.fn(async () => []) },
+    acuteEvent: { findMany: async () => [] },
+    exertionEvent: { findMany: async () => [] },
   },
 }));
 

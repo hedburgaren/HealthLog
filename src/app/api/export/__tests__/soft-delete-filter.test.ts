@@ -80,6 +80,8 @@ vi.mock("@/lib/db", () => ({
     ecgRecording: { findMany: vi.fn() },
     symptomDefinition: { findMany: vi.fn() },
     lifeEvent: { findMany: vi.fn() },
+    acuteEvent: { findMany: vi.fn().mockResolvedValue([]) },
+    exertionEvent: { findMany: vi.fn().mockResolvedValue([]) },
     labResultDocumentLink: { findMany: vi.fn().mockResolvedValue([]) },
     encounterMedicationLink: { findMany: vi.fn().mockResolvedValue([]) },
     encounterVaccinationLink: { findMany: vi.fn().mockResolvedValue([]) },
@@ -227,6 +229,8 @@ beforeEach(() => {
   vi.mocked(prisma.ecgRecording.findMany).mockResolvedValue([] as never);
   vi.mocked(prisma.symptomDefinition.findMany).mockResolvedValue([] as never);
   vi.mocked(prisma.lifeEvent.findMany).mockResolvedValue([] as never);
+  vi.mocked(prisma.acuteEvent.findMany).mockResolvedValue([] as never);
+  vi.mocked(prisma.exertionEvent.findMany).mockResolvedValue([] as never);
   vi.mocked(prisma.userAchievement.findMany).mockResolvedValue([] as never);
 });
 

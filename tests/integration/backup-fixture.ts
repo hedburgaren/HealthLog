@@ -675,6 +675,28 @@ export async function seedEveryTwoEndedModel(
     },
   });
 
+  // An acute stressor event and an everyday exertion entry, so the backup
+  // round trip carries the note and the label through both ends.
+  await prisma.acuteEvent.create({
+    data: {
+      userId: OWNER_ID,
+      category: "COMMUTE",
+      occurredAt: AT("2026-07-08T07:15:00.000Z"),
+      intensity: 7,
+      noteEncrypted: encryptToBytes("near miss on the platform"),
+    },
+  });
+  await prisma.exertionEvent.create({
+    data: {
+      userId: OWNER_ID,
+      labelEncrypted: encryptToBytes("Grocery haul up three flights"),
+      occurredAt: AT("2026-07-08T17:40:00.000Z"),
+      intensity: 6,
+      durationMin: 15,
+      noteEncrypted: encryptToBytes("five bags, no elevator"),
+    },
+  });
+
   await prisma.userHealthProfile.create({
     data: {
       userId: OWNER_ID,

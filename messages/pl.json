@@ -503,7 +503,11 @@
       "symptom": "Objaw",
       "symptomDescription": "Jeden z twoich objawów, z nasileniem",
       "lifeEventDescription": "Przeprowadzka, narodziny, nowa praca",
-      "lifeEvent": "Wydarzenie życiowe"
+      "lifeEvent": "Wydarzenie życiowe",
+      "acuteEventDescription": "Coś, co się wydarzyło i mocno uderzyło",
+      "acuteEvent": "Zdarzenie ostre",
+      "exertionDescription": "Codzienny wysiłek ponad zwykłe",
+      "exertion": "Wysiłek"
     },
     "cycle": "Cykl",
     "labs": "Wyniki badań",
@@ -792,7 +796,9 @@
     },
     "greetingOnly": "{greeting}.",
     "welcomeNew": "Witaj.",
-    "welcomeNewWithName": "Witaj, {name}."
+    "welcomeNewWithName": "Witaj, {name}.",
+    "quickAddAcuteEvent": "Zapisz ostre zdarzenie",
+    "quickAddExertion": "Zapisz wysiłek"
   },
   "measurements": {
     "title": "Pomiary",
@@ -2768,7 +2774,9 @@
         "STATE_OF_MIND_VALENCE": "zapisany stan ducha",
         "INDOOR_CO2": "CO2 w pomieszczeniu",
         "INDOOR_TEMPERATURE": "temperatura w pomieszczeniu",
-        "INDOOR_HUMIDITY": "wilgotność w pomieszczeniu"
+        "INDOOR_HUMIDITY": "wilgotność w pomieszczeniu",
+        "ACUTE_EVENT": "ostre zdarzenia",
+        "EXERTION": "codzienny wysiłek"
       },
       "daily": {
         "high": "Gdy {behaviour} rośnie, {outcome} następnego dnia zwykle wykazuje tendencję do {direction} w Twoich danych. To wzorzec wart obserwacji, nie przyczyna.",
@@ -13506,7 +13514,8 @@
       "paused": "Wstrzymano: {label}",
       "resumed": "Wznowiono: {label}",
       "illnessBegan": "Początek: {label}",
-      "illnessResolved": "Wyzdrowienie: {label}"
+      "illnessResolved": "Wyzdrowienie: {label}",
+      "intensityPill": "{value}/10"
     },
     "pickDate": "Wybierz datę",
     "pickerTitle": "Przejdź do dnia",
@@ -13754,6 +13763,53 @@
     "legendLabValue": "Wynik badania, tak jak zmierzono",
     "legendLabOutside": "Poza zakresem referencyjnym",
     "legendLabRange": "Zakres referencyjny"
+  },
+  "acuteEvents": {
+    "category": {
+      "HOME": "W domu",
+      "WORK": "W pracy",
+      "COMMUTE": "W drodze",
+      "FINANCE": "Pieniądze",
+      "OTHER": "Coś innego"
+    },
+    "entry": {
+      "sheetDescription": "Co się stało, jak źle było i kiedy.",
+      "category": "Co to było?",
+      "categoryRequired": "Wybierz, co to było.",
+      "intensity": "Intensywność",
+      "intensityRequired": "Ustaw, jak mocne to było.",
+      "intensityUnset": "Nie ustawiono",
+      "anchorLow": "Ledwo odczuwalne",
+      "anchorHigh": "Tak źle, jak tylko się da",
+      "intensityValueText": "{value} z {max} ({low} do {high})",
+      "when": "Kiedy",
+      "note": "Notatka",
+      "notePlaceholder": "Co się stało, twoimi słowami?",
+      "reset": "Wyczyść formularz"
+    },
+    "saveError": "Nie udało się zapisać. Spróbuj ponownie."
+  },
+  "exertion": {
+    "entry": {
+      "sheetDescription": "Co to było, jak ciężkie i jak długo trwało.",
+      "label": "Co robiłaś lub robiłeś?",
+      "labelRequired": "Napisz, co to było.",
+      "labelPlaceholder": "Zakupy wniesione trzy piętra bez windy",
+      "intensity": "Odczuwany wysiłek",
+      "intensityRequired": "Ustaw, jak ciężkie to było.",
+      "intensityUnset": "Nie ustawiono",
+      "anchorLow": "Prawie nic",
+      "anchorHigh": "Tak ciężko, jak tylko się da",
+      "intensityValueText": "{value} z {max} ({low} do {high})",
+      "duration": "Czas trwania (minuty)",
+      "durationPlaceholder": "np. 15",
+      "durationInvalid": "Podaj minuty jako liczbę całkowitą, co najmniej 1.",
+      "when": "Kiedy",
+      "note": "Notatka",
+      "notePlaceholder": "Coś jeszcze do zapisku?",
+      "reset": "Wyczyść formularz"
+    },
+    "saveError": "Nie udało się zapisać. Spróbuj ponownie."
   },
   "lifeEvents": {
     "title": "Wydarzenie życiowe",

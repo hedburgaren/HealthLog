@@ -37,6 +37,8 @@ vi.mock("@/lib/db", () => ({
     dawarichDay: { findMany: vi.fn().mockResolvedValue([]) },
     customMetric: { findMany: vi.fn().mockResolvedValue([]) },
     symptomDefinition: { findMany: vi.fn().mockResolvedValue([]) },
+    acuteEvent: { findMany: vi.fn().mockResolvedValue([]) },
+    exertionEvent: { findMany: vi.fn().mockResolvedValue([]) },
   },
 }));
 
@@ -165,6 +167,8 @@ beforeEach(() => {
   vi.mocked(prisma.customMetric.findMany).mockResolvedValue([] as never);
   vi.mocked(prisma.symptomDefinition.findMany).mockResolvedValue([] as never);
   vi.mocked(prisma.dawarichDay.findMany).mockResolvedValue([] as never);
+  vi.mocked(prisma.acuteEvent.findMany).mockResolvedValue([] as never);
+  vi.mocked(prisma.exertionEvent.findMany).mockResolvedValue([] as never);
   vi.mocked(hadFindingsBeforeSeasonalAdjustment).mockResolvedValue(false);
 });
 

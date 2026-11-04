@@ -139,6 +139,10 @@ const STATIC_SURFACE_MODULE = {
   // v1.40 — an occurrence of a person-defined symptom rides the illness module.
   "capture:symptom": "illness",
   "capture:lifeEvent": "timeline",
+  // Acute events ride the timeline module beside the life events; exertion
+  // rides the workouts module.
+  "capture:acuteEvent": "timeline",
+  "capture:exertion": "workouts",
 
   // ── Dashboard widgets ──
   // CORE widgets (weight, blood pressure, pulse, body fat, the vital-derived
@@ -246,6 +250,12 @@ const STATIC_SURFACE_MODULE = {
   "correlation:INDOOR_CO2": "environment",
   "correlation:INDOOR_TEMPERATURE": "environment",
   "correlation:INDOOR_HUMIDITY": "environment",
+  // The day's stressors ride the timeline module, like the life events they
+  // sit beside there.
+  "correlation:ACUTE_EVENT": "timeline",
+  // Everyday exertion rides the workouts module: it owns the activity
+  // record, and this is the activity the day asked for without a session.
+  "correlation:EXERTION": "workouts",
 
   // ── Day view sections (v1.42) ──
   // The readings carry no owner here: each value follows its own type's
@@ -268,6 +278,10 @@ const STATIC_SURFACE_MODULE = {
   // Life events are the timeline module's own content: off, they leave the
   // day as well.
   "day-section:lifeEvents": "timeline",
+  // Acute stressor events ride the timeline module beside the life events.
+  "day-section:acuteEvents": "timeline",
+  // Everyday exertion rides the workouts module, like the training channels.
+  "day-section:exertion": "workouts",
 
   // ── Timeline lanes (v1.42) ──
   // The `life` lane mixes life events (this module) with travel periods (the

@@ -208,6 +208,8 @@ const COUNT_BACK: Record<
     p.symptomDefinition.count({ where: { userId } }),
   SymptomEvent: (p, userId) => p.symptomEvent.count({ where: { userId } }),
   LifeEvent: (p, userId) => p.lifeEvent.count({ where: { userId } }),
+  AcuteEvent: (p, userId) => p.acuteEvent.count({ where: { userId } }),
+  ExertionEvent: (p, userId) => p.exertionEvent.count({ where: { userId } }),
   IllnessSymptomLink: (p, userId) =>
     p.illnessSymptomLink.count({ where: { dayLog: { userId } } }),
   UserHealthProfile: (p, userId) =>

@@ -51,6 +51,8 @@ import {
   restoreLabResults,
 } from "@/lib/export/labs-backup";
 import { restoreLifeEventsData } from "@/lib/export/life-events-backup";
+import { restoreAcuteEventsData } from "@/lib/export/acute-events-backup";
+import { restoreExertionData } from "@/lib/export/exertion-backup";
 import {
   clearMeasurementRollups,
   clearMeasurements,
@@ -227,6 +229,26 @@ export const RESTORE_STEPS: readonly RestoreStep[] = [
       Object.assign(
         ctx.cleared,
         await restoreLifeEventsData(ctx.tx, ctx.ownerId, ctx.payload),
+      );
+    },
+  },
+  {
+    // The person's acute stressor events and everyday exertion entries.
+    // Both reference nothing but the account.
+    name: "acute events",
+    run: async (ctx) => {
+      Object.assign(
+        ctx.cleared,
+        await restoreAcuteEventsData(ctx.tx, ctx.ownerId, ctx.payload),
+      );
+    },
+  },
+  {
+    name: "exertion",
+    run: async (ctx) => {
+      Object.assign(
+        ctx.cleared,
+        await restoreExertionData(ctx.tx, ctx.ownerId, ctx.payload),
       );
     },
   },

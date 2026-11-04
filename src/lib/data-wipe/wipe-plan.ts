@@ -154,6 +154,10 @@ export const WIPE_MODELS = [
   "SymptomEvent",
   // v1.42 — the person's life events. Nothing points at them.
   "LifeEvent",
+  // The person's acute stressor events and everyday exertion entries.
+  // Nothing points at either.
+  "AcuteEvent",
+  "ExertionEvent",
   "EcgRecording",
   "NutrientIntakeDay",
 

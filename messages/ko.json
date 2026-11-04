@@ -503,7 +503,11 @@
       "symptom": "증상",
       "symptomDescription": "직접 정한 증상과 강도",
       "lifeEventDescription": "이사, 출산, 새 직장",
-      "lifeEvent": "삶의 사건"
+      "lifeEvent": "삶의 사건",
+      "acuteEventDescription": "일어났고 크게 흔든 일",
+      "acuteEvent": "급성 사건",
+      "exertionDescription": "평소를 넘는 일상의 몸짓",
+      "exertion": "신체 부담"
     },
     "cycle": "생리 주기",
     "labs": "검사",
@@ -792,7 +796,9 @@
     },
     "greetingOnly": "{greeting}.",
     "welcomeNew": "환영합니다.",
-    "welcomeNewWithName": "{name}님, 환영합니다."
+    "welcomeNewWithName": "{name}님, 환영합니다.",
+    "quickAddAcuteEvent": "급성 사건 기록",
+    "quickAddExertion": "신체 부담 기록"
   },
   "measurements": {
     "title": "측정",
@@ -2768,7 +2774,9 @@
         "STATE_OF_MIND_VALENCE": "기록한 마음 상태",
         "INDOOR_CO2": "실내 CO2",
         "INDOOR_TEMPERATURE": "실내 온도",
-        "INDOOR_HUMIDITY": "실내 습도"
+        "INDOOR_HUMIDITY": "실내 습도",
+        "ACUTE_EVENT": "급성 사건",
+        "EXERTION": "일상 신체 부담"
       },
       "daily": {
         "high": "{behaviour} 수치가 높은 날에는 다음 날 {outcome} 수치가 {direction} 경향이 있어요. 원인이 아니라 지켜볼 만한 패턴이에요.",
@@ -13506,7 +13514,8 @@
       "paused": "{label} 일시 중지",
       "resumed": "{label} 다시 시작",
       "illnessBegan": "{label} 시작",
-      "illnessResolved": "{label} 나음"
+      "illnessResolved": "{label} 나음",
+      "intensityPill": "{value}/10"
     },
     "pickDate": "날짜 선택",
     "pickerTitle": "날짜로 이동",
@@ -13754,6 +13763,53 @@
     "legendLabValue": "측정된 그대로의 검사 수치",
     "legendLabOutside": "참고 범위 밖",
     "legendLabRange": "참고 범위"
+  },
+  "acuteEvents": {
+    "category": {
+      "HOME": "집에서",
+      "WORK": "직장에서",
+      "COMMUTE": "이동 중",
+      "FINANCE": "돈",
+      "OTHER": "기타"
+    },
+    "entry": {
+      "sheetDescription": "무슨 일이 있었는지, 얼마나 힘들었는지, 언제였는지.",
+      "category": "어떤 종류였나요?",
+      "categoryRequired": "종류를 선택하세요.",
+      "intensity": "강도",
+      "intensityRequired": "강도를 설정하세요.",
+      "intensityUnset": "미설정",
+      "anchorLow": "거의 없음",
+      "anchorHigh": "겪을 수 있는 최악",
+      "intensityValueText": "{value}/{max} ({low}부터 {high})",
+      "when": "언제",
+      "note": "메모",
+      "notePlaceholder": "무슨 일이었는지, 직접 적어보세요.",
+      "reset": "양식 초기화"
+    },
+    "saveError": "저장하지 못했습니다. 다시 시도하세요."
+  },
+  "exertion": {
+    "entry": {
+      "sheetDescription": "무엇이었는지, 얼마나 무거웠는지, 얼마나 걸렸는지.",
+      "label": "무엇을 했나요?",
+      "labelRequired": "무엇이었는지 적어주세요.",
+      "labelPlaceholder": "엘리베이터 없는 3층까지 장보기 들기",
+      "intensity": "느낀 부담",
+      "intensityRequired": "부담의 정도를 설정하세요.",
+      "intensityUnset": "미설정",
+      "anchorLow": "거의 없음",
+      "anchorHigh": "가능한 가장 무거움",
+      "intensityValueText": "{value}/{max} ({low}부터 {high})",
+      "duration": "시간 (분)",
+      "durationPlaceholder": "예: 15",
+      "durationInvalid": "분을 1 이상의 정수로 입력하세요.",
+      "when": "언제",
+      "note": "메모",
+      "notePlaceholder": "더 적을 내용이 있나요?",
+      "reset": "양식 초기화"
+    },
+    "saveError": "저장하지 못했습니다. 다시 시도하세요."
   },
   "lifeEvents": {
     "title": "삶의 사건",
