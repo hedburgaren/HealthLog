@@ -507,7 +507,9 @@
       "acuteEventDescription": "Algo que aconteceu e pegou forte",
       "acuteEvent": "Evento agudo",
       "exertionDescription": "Carga do dia a dia além do comum",
-      "exertion": "Esforço"
+      "exertion": "Esforço",
+      "checkinDescription": "Humor, eventos, esforço e sintomas numa única passada",
+      "checkin": "Conferência da noite"
     },
     "cycle": "Ciclo",
     "labs": "Exames",
@@ -798,7 +800,8 @@
     "welcomeNew": "Boas-vindas.",
     "welcomeNewWithName": "Boas-vindas, {name}.",
     "quickAddAcuteEvent": "Registrar evento agudo",
-    "quickAddExertion": "Registrar esforço"
+    "quickAddExertion": "Registrar esforço",
+    "quickAddCheckin": "Conferência da noite"
   },
   "measurements": {
     "title": "Medições",
@@ -13763,6 +13766,16 @@
     "legendLabValue": "Valor de exame, como foi medido",
     "legendLabOutside": "Fora da faixa de referência",
     "legendLabRange": "Faixa de referência"
+  },
+  "checkin": {
+    "moodHeading": "Como foi o dia?",
+    "acuteHeading": "Aconteceu algo que pegou forte?",
+    "exertionHeading": "Teve algo mais pesado que o comum?",
+    "symptomHeading": "Algum sintoma?",
+    "save": "Salvar conferência",
+    "nothingSelected": "Preencha pelo menos uma seção ou feche o painel.",
+    "savedAll": "Conferência salva: {count} registros.",
+    "savedSome": "Conferência salva pela metade: {saved} de {attempted}."
   },
   "acuteEvents": {
     "category": {

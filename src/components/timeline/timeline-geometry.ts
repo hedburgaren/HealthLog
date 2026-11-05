@@ -502,6 +502,8 @@ export type PointShape =
 
 const POINT_SHAPE: Partial<Record<TimelineItemKind, PointShape>> = {
   lifeEvent: "diamond",
+  acuteEvent: "diamond",
+  exertion: "diamond",
   vaccination: "dot",
   visit: "dot",
   procedure: "square",

@@ -507,7 +507,9 @@
       "acuteEventDescription": "Qualcosa che è successo e che ha colpito",
       "acuteEvent": "Evento acuto",
       "exertionDescription": "Il carico di ogni giorno, oltre il solito",
-      "exertion": "Sforzo"
+      "exertion": "Sforzo",
+      "checkinDescription": "Umore, eventi, sforzi e sintomi in un colpo solo",
+      "checkin": "Rassegna serale"
     },
     "cycle": "Ciclo",
     "labs": "Esami",
@@ -798,7 +800,8 @@
     "welcomeNew": "Ti diamo il benvenuto.",
     "welcomeNewWithName": "Ti diamo il benvenuto, {name}.",
     "quickAddAcuteEvent": "Registra evento acuto",
-    "quickAddExertion": "Registra sforzo"
+    "quickAddExertion": "Registra sforzo",
+    "quickAddCheckin": "Rassegna serale"
   },
   "measurements": {
     "title": "Misurazioni",
@@ -13763,6 +13766,16 @@
     "legendLabValue": "Valore di laboratorio, così come misurato",
     "legendLabOutside": "Fuori dall’intervallo di riferimento",
     "legendLabRange": "Intervallo di riferimento"
+  },
+  "checkin": {
+    "moodHeading": "Com'è andata la giornata?",
+    "acuteHeading": "È successo qualcosa che ha colpito forte?",
+    "exertionHeading": "C era qualcosa di più pesante del solito?",
+    "symptomHeading": "Qualche sintomo?",
+    "save": "Salva rassegna",
+    "nothingSelected": "Compila almeno una sezione o chiudi il pannello.",
+    "savedAll": "Rassegna salvata: {count} voci.",
+    "savedSome": "Rassegna salvata in parte: {saved} di {attempted}."
   },
   "acuteEvents": {
     "category": {

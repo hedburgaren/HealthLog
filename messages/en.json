@@ -507,7 +507,9 @@
       "acuteEventDescription": "Something that happened and hit hard",
       "acuteEvent": "Acute event",
       "exertionDescription": "Everyday load beyond the ordinary",
-      "exertion": "Exertion"
+      "exertion": "Exertion",
+      "checkinDescription": "Mood, events, exertion and symptoms in one sweep",
+      "checkin": "Evening check-in"
     },
     "cycle": "Cycle",
     "labs": "Labs",
@@ -798,7 +800,8 @@
     "welcomeNew": "Welcome.",
     "welcomeNewWithName": "Welcome, {name}.",
     "quickAddAcuteEvent": "Log acute event",
-    "quickAddExertion": "Log exertion"
+    "quickAddExertion": "Log exertion",
+    "quickAddCheckin": "Evening check-in"
   },
   "measurements": {
     "title": "Measurements",
@@ -13763,6 +13766,16 @@
     "legendLabValue": "Lab value, as measured",
     "legendLabOutside": "Outside the reference range",
     "legendLabRange": "Reference range"
+  },
+  "checkin": {
+    "moodHeading": "How was the day?",
+    "acuteHeading": "Did anything happen that hit hard?",
+    "exertionHeading": "Was anything heavier than usual?",
+    "symptomHeading": "Any symptoms?",
+    "save": "Save check-in",
+    "nothingSelected": "Fill in at least one section, or close the sheet.",
+    "savedAll": "Check-in saved: {count} entries.",
+    "savedSome": "Check-in partly saved: {saved} of {attempted}."
   },
   "acuteEvents": {
     "category": {

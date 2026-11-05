@@ -507,7 +507,9 @@
       "acuteEventDescription": "Coś, co się wydarzyło i mocno uderzyło",
       "acuteEvent": "Zdarzenie ostre",
       "exertionDescription": "Codzienny wysiłek ponad zwykłe",
-      "exertion": "Wysiłek"
+      "exertion": "Wysiłek",
+      "checkinDescription": "Nastrój, zdarzenia, wysiłek i objoty w jednym przebiegu",
+      "checkin": "Wieczorny przegląd"
     },
     "cycle": "Cykl",
     "labs": "Wyniki badań",
@@ -798,7 +800,8 @@
     "welcomeNew": "Witaj.",
     "welcomeNewWithName": "Witaj, {name}.",
     "quickAddAcuteEvent": "Zapisz ostre zdarzenie",
-    "quickAddExertion": "Zapisz wysiłek"
+    "quickAddExertion": "Zapisz wysiłek",
+    "quickAddCheckin": "Wieczorny przegląd"
   },
   "measurements": {
     "title": "Pomiary",
@@ -13763,6 +13766,16 @@
     "legendLabValue": "Wynik badania, tak jak zmierzono",
     "legendLabOutside": "Poza zakresem referencyjnym",
     "legendLabRange": "Zakres referencyjny"
+  },
+  "checkin": {
+    "moodHeading": "Jak był dzień?",
+    "acuteHeading": "Czy coś mocno uderzyło?",
+    "exertionHeading": "Czy było coś cięższego niż zwykle?",
+    "symptomHeading": "Jakieś objoty?",
+    "save": "Zapisz przegląd",
+    "nothingSelected": "Wypełnij co najmniej jedną sekcję albo zamknij arkusz.",
+    "savedAll": "Przegląd zapisany: {count} wpisów.",
+    "savedSome": "Przegląd zapisany częściowo: {saved} z {attempted}."
   },
   "acuteEvents": {
     "category": {

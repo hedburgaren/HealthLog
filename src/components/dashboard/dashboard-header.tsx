@@ -16,6 +16,7 @@ import {
   Activity,
   Dumbbell,
   Flag,
+  MoonStar,
   Footprints,
   Pill,
   Plus,
@@ -116,6 +117,7 @@ export function DashboardHeader({
   const canAddSymptom = offered.includes("symptom");
   const canAddWorkout = offered.includes("workout");
   const canAddLifeEvent = offered.includes("lifeEvent");
+  const canAddCheckin = offered.includes("checkin");
   const canAddAcuteEvent = offered.includes("acuteEvent");
   const canAddExertion = offered.includes("exertion");
   const canAddAnything = offered.length > 0;
@@ -289,6 +291,12 @@ export function DashboardHeader({
                   <DropdownMenuItem onClick={() => onQuickEntry("lifeEvent")}>
                     <Flag className="mr-2 h-4 w-4" aria-hidden="true" />
                     {t("dashboard.quickAddLifeEvent")}
+                  </DropdownMenuItem>
+                )}
+                {canAddCheckin && (
+                  <DropdownMenuItem onClick={() => onQuickEntry("checkin")}>
+                    <MoonStar className="mr-2 h-4 w-4" aria-hidden="true" />
+                    {t("dashboard.quickAddCheckin")}
                   </DropdownMenuItem>
                 )}
                 {canAddAcuteEvent && (

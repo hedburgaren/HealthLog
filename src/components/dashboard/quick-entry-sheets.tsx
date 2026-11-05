@@ -21,6 +21,7 @@ import {
 import { LifeEventForm } from "@/components/timeline/life-event-form.lazy";
 import { AcuteEventForm } from "@/components/acute-events/acute-event-form.lazy";
 import { ExertionForm } from "@/components/exertion/exertion-form.lazy";
+import { CheckinForm } from "@/components/checkin/checkin-form.lazy";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -45,6 +46,7 @@ export type QuickEntryDialog =
   | "symptom"
   | "workout"
   | "lifeEvent"
+  | "checkin"
   | "acuteEvent"
   | "exertion"
   | null;
@@ -68,6 +70,9 @@ const QUICK_ENTRY_DOMAIN: Readonly<
   // the life-event posture: their routes take bare `requireAuth()`.
   acuteEvent: null,
   exertion: null,
+  // The check-in bundle writes acute events and exertion entries, which no
+  // delegate reaches, so it is own-record only like the rows it creates.
+  checkin: null,
 };
 
 /**
@@ -193,6 +198,9 @@ export function QuickEntrySheets({
     useState<HTMLDivElement | null>(null);
   const [exertionFooterEl, setExertionFooterEl] =
     useState<HTMLDivElement | null>(null);
+  const [checkinFooterEl, setCheckinFooterEl] = useState<HTMLDivElement | null>(
+    null,
+  );
   // v1.11.3 — when an open quick-entry sheet is dismissed with
   // unsaved input, hold the close in this flag and surface a confirm
   // instead of nulling the dialog outright. Cleared once the user
@@ -340,6 +348,22 @@ export function QuickEntrySheets({
             onSuccess={onClose}
             onCancel={onClose}
             footerSlot={exertionFooterEl}
+          />
+        )}
+      </ResponsiveSheet>
+
+      <ResponsiveSheet
+        open={openSheet === "checkin"}
+        onOpenChange={handleQuickEntryOpenChange}
+        title={t("dashboard.quickAddCheckin")}
+        description={t("nav.capture.checkinDescription")}
+        footer={<div ref={setCheckinFooterEl} className="flex w-full" />}
+      >
+        {openSheet === "checkin" && (
+          <CheckinForm
+            onSuccess={onClose}
+            onCancel={onClose}
+            footerSlot={checkinFooterEl}
           />
         )}
       </ResponsiveSheet>

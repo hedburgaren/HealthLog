@@ -1,7 +1,7 @@
 {
   "$comment": "Production functions over 200 lines, keyed \"file :: name\", and their length. Maintained by src/__tests__/source-size-ratchet.test.ts.",
   "count": 345,
-  "total": 112914,
+  "total": 113348,
   "entries": {
     "app/achievements/page.tsx :: AchievementsPage": 206,
     "app/api/admin/backups/upload/route.ts :: apiHandler(arg)": 275,
@@ -84,7 +84,7 @@
     "components/cycle/cycle-view.tsx :: CycleView": 408,
     "components/cycle/log-day-sheet.tsx :: LogDaySheet": 753,
     "components/daily/today-hero.tsx :: TodayHero": 488,
-    "components/dashboard/dashboard-header.tsx :: DashboardHeader": 229,
+    "components/dashboard/dashboard-header.tsx :: DashboardHeader": 236,
     "components/dashboard/medication-intake-quick-add.tsx :: MedicationIntakeQuickAdd": 384,
     "components/day/day-layer.tsx :: DayLayer": 358,
     "components/day/day-view.tsx :: DayView": 309,
@@ -142,7 +142,7 @@
     "components/labs/ocr-row-editor.tsx :: OcrRowEditor": 386,
     "components/layout/auth-shell.tsx :: AuthShell": 518,
     "components/layout/bottom-nav.tsx :: BottomNav": 262,
-    "components/layout/capture-picker.tsx :: CapturePicker": 265,
+    "components/layout/capture-picker.tsx :: CapturePicker": 280,
     "components/layout/sidebar-nav.tsx :: SidebarNav": 356,
     "components/layout/top-bar.tsx :: TopBar": 212,
     "components/links/entity-link-picker.tsx :: EntityLinkPicker": 392,
@@ -349,8 +349,9 @@
     "lib/withings/sync.ts :: syncUserMeasurements": 337,
     "proxy.ts :: proxy": 498,
     "components/acute-events/acute-event-form.tsx :: AcuteEventForm": 252,
-    "components/dashboard/quick-entry-sheets.tsx :: QuickEntrySheets": 221,
+    "components/dashboard/quick-entry-sheets.tsx :: QuickEntrySheets": 240,
     "components/exertion/exertion-form.tsx :: ExertionForm": 272,
-    "lib/insights/discovery-matrix.ts :: assembleDiscoveryMatrix": 207
+    "lib/insights/discovery-matrix.ts :: assembleDiscoveryMatrix": 207,
+    "components/checkin/checkin-form.tsx :: CheckinForm": 393
   }
 }

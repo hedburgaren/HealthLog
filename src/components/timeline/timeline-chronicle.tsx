@@ -18,6 +18,7 @@ import { useState } from "react";
 import {
   CalendarHeart,
   ChevronDown,
+  Dumbbell,
   FileText,
   Flag,
   FlaskConical,
@@ -27,6 +28,7 @@ import {
   Stethoscope,
   Syringe,
   Thermometer,
+  Zap,
   type LucideIcon,
 } from "lucide-react";
 
@@ -65,6 +67,8 @@ import {
 const KIND_ICON: Partial<Record<TimelineItemKind, LucideIcon>> = {
   lifeEvent: Flag,
   travel: Flag,
+  acuteEvent: Zap,
+  exertion: Dumbbell,
   episode: Thermometer,
   chronic: Thermometer,
   allergy: Shield,

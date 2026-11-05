@@ -319,6 +319,8 @@ export type TimelineLaneKey = (typeof TIMELINE_LANE_KEYS)[number];
 export const TIMELINE_ITEM_KINDS = [
   "lifeEvent",
   "travel",
+  "acuteEvent",
+  "exertion",
   "episode",
   "chronic",
   "allergy",

@@ -118,6 +118,20 @@ function everyKind(): TimelineResponse {
       }),
     ),
     item({
+      id: "ae-1",
+      kind: "acuteEvent",
+      start: day(),
+      label: "COMMUTE",
+      sub: "7",
+    }),
+    item({
+      id: "ex-1",
+      kind: "exertion",
+      start: day(),
+      label: "Treppen",
+      sub: "5",
+    }),
+    item({
       id: "trip",
       kind: "travel",
       start: "2026-09-02",

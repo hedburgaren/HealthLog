@@ -507,7 +507,9 @@
       "acuteEventDescription": "Etwas, das passiert ist und getroffen hat",
       "acuteEvent": "Akutes Ereignis",
       "exertionDescription": "Alltagsbelastung über das Übliche hinaus",
-      "exertion": "Anstrengung"
+      "exertion": "Anstrengung",
+      "checkinDescription": "Stimmung, Ereignisse, Anstrengung und Symptome in einem Durchgang",
+      "checkin": "Abend-Check-in"
     },
     "cycle": "Zyklus",
     "labs": "Laborwerte",
@@ -798,7 +800,8 @@
     "welcomeNew": "Willkommen.",
     "welcomeNewWithName": "Willkommen, {name}.",
     "quickAddAcuteEvent": "Akutes Ereignis loggen",
-    "quickAddExertion": "Anstrengung loggen"
+    "quickAddExertion": "Anstrengung loggen",
+    "quickAddCheckin": "Abend-Check-in"
   },
   "measurements": {
     "title": "Messungen",
@@ -13763,6 +13766,16 @@
     "legendLabValue": "Laborwert, wie gemessen",
     "legendLabOutside": "Außerhalb des Referenzbereichs",
     "legendLabRange": "Referenzbereich"
+  },
+  "checkin": {
+    "moodHeading": "Wie war der Tag?",
+    "acuteHeading": "Gab es etwas, das stark getroffen hat?",
+    "exertionHeading": "War etwas schwerer als sonst?",
+    "symptomHeading": "Symptome gehabt?",
+    "save": "Check-in speichern",
+    "nothingSelected": "Fülle mindestens einen Abschnitt aus oder schließe das Blatt.",
+    "savedAll": "Check-in gespeichert: {count} Einträge.",
+    "savedSome": "Check-in teilweise gespeichert: {saved} von {attempted}."
   },
   "acuteEvents": {
     "category": {

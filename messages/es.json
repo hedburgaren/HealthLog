@@ -507,7 +507,9 @@
       "acuteEventDescription": "Algo que pasó y que golpearon fuerte",
       "acuteEvent": "Evento agudo",
       "exertionDescription": "Carga cotidiana más allá de lo habitual",
-      "exertion": "Esfuerzo"
+      "exertion": "Esfuerzo",
+      "checkinDescription": "Ánimo, eventos, esfuerzo y síntomas en una sola pasada",
+      "checkin": "Repaso nocturno"
     },
     "cycle": "Ciclo",
     "labs": "Análisis",
@@ -798,7 +800,8 @@
     "welcomeNew": "Te damos la bienvenida.",
     "welcomeNewWithName": "Te damos la bienvenida, {name}.",
     "quickAddAcuteEvent": "Registrar evento agudo",
-    "quickAddExertion": "Registrar esfuerzo"
+    "quickAddExertion": "Registrar esfuerzo",
+    "quickAddCheckin": "Repaso nocturno"
   },
   "measurements": {
     "title": "Mediciones",
@@ -13763,6 +13766,16 @@
     "legendLabValue": "Valor de laboratorio, tal como se midió",
     "legendLabOutside": "Fuera del intervalo de referencia",
     "legendLabRange": "Intervalo de referencia"
+  },
+  "checkin": {
+    "moodHeading": "¿Qué tal estuvo el día?",
+    "acuteHeading": "¿Pasó algo que golpeó fuerte?",
+    "exertionHeading": "¿Hubo algo más pesado de lo habitual?",
+    "symptomHeading": "¿Algún síntoma?",
+    "save": "Guardar repaso",
+    "nothingSelected": "Rellena al menos una sección o cierra la hoja.",
+    "savedAll": "Repaso guardado: {count} registros.",
+    "savedSome": "Repaso guardado a medias: {saved} de {attempted}."
   },
   "acuteEvents": {
     "category": {

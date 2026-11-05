@@ -8,6 +8,7 @@ import {
   Footprints,
   Pill,
   Stethoscope,
+  MoonStar,
   Waves,
   Zap,
 } from "lucide-react";
@@ -23,6 +24,7 @@ import {
 import { LifeEventForm } from "@/components/timeline/life-event-form.lazy";
 import { AcuteEventForm } from "@/components/acute-events/acute-event-form.lazy";
 import { ExertionForm } from "@/components/exertion/exertion-form.lazy";
+import { CheckinForm } from "@/components/checkin/checkin-form.lazy";
 import {
   AlertDialog,
   AlertDialogAction,
@@ -56,6 +58,9 @@ import {
  *                   v1.40; rides the illness module)
  *   - Life event  → `<LifeEventForm>` (v1.42; rides the opt-in timeline
  *                   module, own record only)
+ *   - Check-in    → `<CheckinForm>` (the day's four self-reports in one
+ *                   sweep: mood, an acute event, exertion, a symptom;
+ *                   own record only)
  *   - Acute event → `<AcuteEventForm>` (the day's stressors; rides the
  *                   timeline module, own record only)
  *   - Exertion    → `<ExertionForm>` (everyday exertion beyond the
@@ -82,6 +87,7 @@ export type CaptureKind =
   | "symptom"
   | "workout"
   | "lifeEvent"
+  | "checkin"
   | "acuteEvent"
   | "exertion";
 
@@ -111,6 +117,9 @@ const CAPTURE_KIND_DOMAIN: Readonly<Record<CaptureKind, ShareDomain | null>> = {
   // v1.42 — life events are written by the record's owner only until their
   // writes join the audited delegable list; a delegate is never offered one.
   lifeEvent: null,
+  // The check-in bundle writes acute events and exertion entries, which no
+  // delegate reaches, so it is own-record only like the rows it creates.
+  checkin: null,
   // Acute events and exertion entries are written by the record's owner
   // only, the life-event posture: their routes take bare `requireAuth()`.
   acuteEvent: null,
@@ -125,6 +134,7 @@ export const CAPTURE_KIND_ORDER: ReadonlyArray<CaptureKind> = [
   "symptom",
   "workout",
   "lifeEvent",
+  "checkin",
   "acuteEvent",
   "exertion",
 ];
@@ -282,6 +292,12 @@ export function CapturePicker({
       icon: Flag,
     },
     {
+      kind: "checkin",
+      label: t("nav.capture.checkin"),
+      description: t("nav.capture.checkinDescription"),
+      icon: MoonStar,
+    },
+    {
       kind: "acuteEvent",
       label: t("nav.capture.acuteEvent"),
       description: t("nav.capture.acuteEventDescription"),
@@ -305,6 +321,7 @@ export function CapturePicker({
     symptom: t("dashboard.quickAddSymptom"),
     workout: t("dashboard.quickAddWorkout"),
     lifeEvent: t("dashboard.quickAddLifeEvent"),
+    checkin: t("dashboard.quickAddCheckin"),
     acuteEvent: t("dashboard.quickAddAcuteEvent"),
     exertion: t("dashboard.quickAddExertion"),
   };
@@ -390,6 +407,14 @@ export function CapturePicker({
         )}
         {openKind === "lifeEvent" && (
           <LifeEventForm
+            onSuccess={closeForm}
+            onCancel={closeForm}
+            footerSlot={footerEl}
+            defaultDate={defaultDate}
+          />
+        )}
+        {openKind === "checkin" && (
+          <CheckinForm
             onSuccess={closeForm}
             onCancel={closeForm}
             footerSlot={footerEl}

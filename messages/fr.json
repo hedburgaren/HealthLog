@@ -507,7 +507,9 @@
       "acuteEventDescription": "Quelque chose qui est arrivé et qui a fait mal",
       "acuteEvent": "Événement aigu",
       "exertionDescription": "Une charge du quotidien au-delà de l'habitude",
-      "exertion": "Effort"
+      "exertion": "Effort",
+      "checkinDescription": "Humeur, événements, efforts et symptômes en un seul passage",
+      "checkin": "Point du soir"
     },
     "cycle": "Cycle",
     "labs": "Analyses",
@@ -798,7 +800,8 @@
     "welcomeNew": "Bienvenue.",
     "welcomeNewWithName": "Bienvenue, {name}.",
     "quickAddAcuteEvent": "Consigner un événement aigu",
-    "quickAddExertion": "Consigner un effort"
+    "quickAddExertion": "Consigner un effort",
+    "quickAddCheckin": "Point du soir"
   },
   "measurements": {
     "title": "Mesures",
@@ -13763,6 +13766,16 @@
     "legendLabValue": "Valeur de laboratoire, telle que mesurée",
     "legendLabOutside": "Hors de l’intervalle de référence",
     "legendLabRange": "Intervalle de référence"
+  },
+  "checkin": {
+    "moodHeading": "Comment s'est passée la journée ?",
+    "acuteHeading": "Quelque chose vous a marqué ?",
+    "exertionHeading": "Quelque chose de plus lourd que d'habitude ?",
+    "symptomHeading": "Des symptômes ?",
+    "save": "Enregistrer le point",
+    "nothingSelected": "Remplissez au moins une section, ou fermez le panneau.",
+    "savedAll": "Point enregistré : {count} entrées.",
+    "savedSome": "Point partiellement enregistré : {saved} sur {attempted}."
   },
   "acuteEvents": {
     "category": {

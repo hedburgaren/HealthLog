@@ -111,7 +111,14 @@ async function lifeLane(frame: LaneFrame): Promise<LaneRead> {
   // test is repeated here so a caller that skips it cannot read either half.
   const travelVisible =
     frame.access.owner && frame.access.modules.environment !== false;
-  const [events, trips] = await Promise.all([
+  // Acute events ride the timeline module like the life events; exertion
+  // rides the workouts module, like the training it sits beside in the
+  // correlation matrix.
+  const acuteVisible =
+    frame.access.owner && frame.access.modules.timeline !== false;
+  const exertionVisible =
+    frame.access.owner && frame.access.modules.workouts !== false;
+  const [events, trips, acute, exertion] = await Promise.all([
     !frame.access.owner || frame.access.modules.timeline === false
       ? Promise.resolve([])
       : prisma.lifeEvent.findMany({
@@ -131,6 +138,30 @@ async function lifeLane(frame: LaneFrame): Promise<LaneRead> {
           where: { userId: frame.userId },
           select: { id: true, startDate: true, endDate: true },
           orderBy: { startDate: "asc" },
+        })
+      : Promise.resolve([]),
+    acuteVisible
+      ? prisma.acuteEvent.findMany({
+          where: { userId: frame.userId },
+          select: {
+            id: true,
+            category: true,
+            occurredAt: true,
+            intensity: true,
+          },
+          orderBy: { occurredAt: "asc" },
+        })
+      : Promise.resolve([]),
+    exertionVisible
+      ? prisma.exertionEvent.findMany({
+          where: { userId: frame.userId },
+          select: {
+            id: true,
+            labelEncrypted: true,
+            occurredAt: true,
+            intensity: true,
+          },
+          orderBy: { occurredAt: "asc" },
         })
       : Promise.resolve([]),
   ]);
@@ -156,6 +187,33 @@ async function lifeLane(frame: LaneFrame): Promise<LaneRead> {
           end: t.endDate,
           open: false,
           label: "travel",
+        }),
+      ),
+      // The acute event's label carries the raw category code; the reader's
+      // language words it, like a life event's category. The intensity is
+      // the sub, worded as a pill beside the name.
+      ...acute.map((a) =>
+        item({
+          id: a.id,
+          kind: "acuteEvent",
+          start: userDayKey(a.occurredAt, frame.tz),
+          end: null,
+          open: false,
+          label: a.category,
+          sub: String(a.intensity),
+        }),
+      ),
+      // The exertion entry's label is the person's own words, the same
+      // class of title a life event carries.
+      ...exertion.map((e) =>
+        item({
+          id: e.id,
+          kind: "exertion",
+          start: userDayKey(e.occurredAt, frame.tz),
+          end: null,
+          open: false,
+          label: openText(e.labelEncrypted, "exertion label") ?? "",
+          sub: String(e.intensity),
         }),
       ),
     ],

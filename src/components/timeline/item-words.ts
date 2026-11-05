@@ -14,6 +14,7 @@
 import { useMemo } from "react";
 
 import { encounterKindText } from "@/components/encounters/encounter-labels";
+import { ACUTE_EVENT_CATEGORY_KEY } from "@/components/day/label-keys";
 import type { TimelineItem } from "@/lib/day/contract";
 import { useTranslations } from "@/lib/i18n/context";
 
@@ -90,6 +91,33 @@ export function makeItemWords(
           sub: null,
           tag: worded(t, LIFE_EVENT_CATEGORY_KEY, item.sub),
         };
+      case "acuteEvent": {
+        // The label is the raw category code; the intensity rides as the
+        // sub, worded as the same pill the day view uses.
+        const category = worded(t, ACUTE_EVENT_CATEGORY_KEY, item.label);
+        const intensity = Number(item.sub);
+        return {
+          label: category ?? "",
+          sub: null,
+          tag:
+            Number.isInteger(intensity) && intensity >= 0
+              ? t("day.event.intensityPill", { value: intensity })
+              : null,
+        };
+      }
+      case "exertion": {
+        // The label is the person's own words for what it was, the same
+        // class of title a life event carries.
+        const intensity = Number(item.sub);
+        return {
+          label: item.label,
+          sub: null,
+          tag:
+            Number.isInteger(intensity) && intensity >= 0
+              ? t("day.event.intensityPill", { value: intensity })
+              : null,
+        };
+      }
       case "travel":
         return { label: t("day.travel"), sub: null };
       case "cycle":

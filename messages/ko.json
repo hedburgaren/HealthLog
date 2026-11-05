@@ -507,7 +507,9 @@
       "acuteEventDescription": "일어났고 크게 흔든 일",
       "acuteEvent": "급성 사건",
       "exertionDescription": "평소를 넘는 일상의 몸짓",
-      "exertion": "신체 부담"
+      "exertion": "신체 부담",
+      "checkinDescription": "기분, 사건, 신체 부담, 증상을 한 번에",
+      "checkin": "저녁 점검"
     },
     "cycle": "생리 주기",
     "labs": "검사",
@@ -798,7 +800,8 @@
     "welcomeNew": "환영합니다.",
     "welcomeNewWithName": "{name}님, 환영합니다.",
     "quickAddAcuteEvent": "급성 사건 기록",
-    "quickAddExertion": "신체 부담 기록"
+    "quickAddExertion": "신체 부담 기록",
+    "quickAddCheckin": "저녁 점검"
   },
   "measurements": {
     "title": "측정",
@@ -13763,6 +13766,16 @@
     "legendLabValue": "측정된 그대로의 검사 수치",
     "legendLabOutside": "참고 범위 밖",
     "legendLabRange": "참고 범위"
+  },
+  "checkin": {
+    "moodHeading": "오늘 하루는 어땠나요?",
+    "acuteHeading": "크게 흔든 일이 있었나요?",
+    "exertionHeading": "평소보다 무거운 일이 있었나요?",
+    "symptomHeading": "증상이 있었나요?",
+    "save": "점검 저장",
+    "nothingSelected": "적어도 한 섹션을 채우거나 시트를 닫으세요.",
+    "savedAll": "점검 저장됨: {count}개 항목.",
+    "savedSome": "점검 부분 저장: {attempted}개 중 {saved}개."
   },
   "acuteEvents": {
     "category": {

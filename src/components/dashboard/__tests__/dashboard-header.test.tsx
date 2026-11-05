@@ -240,6 +240,7 @@ describe("<DashboardHeader> — every entry follows its module, as the capture p
         symptom: "Log symptom",
         workout: "Log workout",
         lifeEvent: "Log life event",
+        checkin: "Evening check-in",
         acuteEvent: "Log acute event",
         exertion: "Log exertion",
       } as const;

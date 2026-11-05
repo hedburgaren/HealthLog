@@ -507,7 +507,9 @@
       "acuteEventDescription": "Iets dat gebeurde en hard aankwam",
       "acuteEvent": "Acute gebeurtenis",
       "exertionDescription": "Alledaagse belasting boven het gewone",
-      "exertion": "Inspanning"
+      "exertion": "Inspanning",
+      "checkinDescription": "Stemming, gebeurtenissen, inspanning en symptomen in één gang",
+      "checkin": "Avondcheck-in"
     },
     "cycle": "Cyclus",
     "labs": "Labwaarden",
@@ -798,7 +800,8 @@
     "welcomeNew": "Welkom.",
     "welcomeNewWithName": "Welkom, {name}.",
     "quickAddAcuteEvent": "Acute gebeurtenis loggen",
-    "quickAddExertion": "Inspanning loggen"
+    "quickAddExertion": "Inspanning loggen",
+    "quickAddCheckin": "Avondcheck-in"
   },
   "measurements": {
     "title": "Metingen",
@@ -13763,6 +13766,16 @@
     "legendLabValue": "Labwaarde, zoals gemeten",
     "legendLabOutside": "Buiten het referentiebereik",
     "legendLabRange": "Referentiebereik"
+  },
+  "checkin": {
+    "moodHeading": "Hoe was de dag?",
+    "acuteHeading": "Is er iets gebeurd dat hard aankwam?",
+    "exertionHeading": "Was er iets zwaarder dan gewoon?",
+    "symptomHeading": "Symptomen gehad?",
+    "save": "Check-in opslaan",
+    "nothingSelected": "Vul minstens één sectie in, of sluit het paneel.",
+    "savedAll": "Check-in opgeslagen: {count} items.",
+    "savedSome": "Check-in deels opgeslagen: {saved} van {attempted}."
   },
   "acuteEvents": {
     "category": {
