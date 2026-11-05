@@ -13806,7 +13806,12 @@
       "notePlaceholder": "What happened, in your own words?",
       "reset": "Reset form"
     },
-    "saveError": "Could not save. Try again."
+    "saveError": "Could not save. Try again.",
+    "sheet": {
+      "editTitle": "Edit acute event"
+    },
+    "deleteTitle": "Delete this acute event?",
+    "deleteDescription": "The entry is removed for good. The intensity and the note cannot be recovered."
   },
   "exertion": {
     "entry": {
@@ -13828,7 +13833,12 @@
       "notePlaceholder": "Anything else to note?",
       "reset": "Reset form"
     },
-    "saveError": "Could not save. Try again."
+    "saveError": "Could not save. Try again.",
+    "sheet": {
+      "editTitle": "Edit exertion entry"
+    },
+    "deleteTitle": "Delete this exertion entry?",
+    "deleteDescription": "The entry is removed for good. The label, the intensity and the note cannot be recovered."
   },
   "lifeEvents": {
     "title": "Life event",

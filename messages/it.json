@@ -13806,7 +13806,12 @@
       "notePlaceholder": "Cosa è successo, con le tue parole?",
       "reset": "Reimposta modulo"
     },
-    "saveError": "Salvataggio non riuscito. Riprova."
+    "saveError": "Salvataggio non riuscito. Riprova.",
+    "sheet": {
+      "editTitle": "Modifica evento acuto"
+    },
+    "deleteTitle": "Eliminare questo evento acuto?",
+    "deleteDescription": "La voce viene rimossa per sempre. Intensità e note non sono recuperabili."
   },
   "exertion": {
     "entry": {
@@ -13828,7 +13833,12 @@
       "notePlaceholder": "Altro da annotare?",
       "reset": "Reimposta modulo"
     },
-    "saveError": "Salvataggio non riuscito. Riprova."
+    "saveError": "Salvataggio non riuscito. Riprova.",
+    "sheet": {
+      "editTitle": "Modifica voce di sforzo"
+    },
+    "deleteTitle": "Eliminare questa voce di sforzo?",
+    "deleteDescription": "La voce viene rimossa per sempre. Etichetta, intensità e note non sono recuperabili."
   },
   "lifeEvents": {
     "title": "Evento di vita",

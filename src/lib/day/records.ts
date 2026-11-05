@@ -1183,7 +1183,7 @@ async function acuteEventsPart(frame: DayFrame): Promise<SectionPart> {
         title: row.category,
         meta: String(row.intensity),
         note: openText(row.noteEncrypted, "acute event note"),
-        href: null,
+        href: `/timeline?day=${frame.day}`,
       }),
     ),
   };
@@ -1220,7 +1220,7 @@ async function exertionPart(frame: DayFrame): Promise<SectionPart> {
         title: openText(row.labelEncrypted, "exertion label") ?? "",
         meta: String(row.intensity),
         note: openText(row.noteEncrypted, "exertion note"),
-        href: null,
+        href: `/timeline?day=${frame.day}`,
       }),
     ),
   };

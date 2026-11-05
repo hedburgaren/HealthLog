@@ -13806,7 +13806,12 @@
       "notePlaceholder": "Ce qui s'est passé, avec vos mots ?",
       "reset": "Réinitialiser le formulaire"
     },
-    "saveError": "Échec de l'enregistrement. Réessayez."
+    "saveError": "Échec de l'enregistrement. Réessayez.",
+    "sheet": {
+      "editTitle": "Modifier l'événement aigu"
+    },
+    "deleteTitle": "Supprimer cet événement aigu ?",
+    "deleteDescription": "L'entrée est supprimée définitivement. L'intensité et la note ne sont pas récupérables."
   },
   "exertion": {
     "entry": {
@@ -13828,7 +13833,12 @@
       "notePlaceholder": "Autre chose à noter ?",
       "reset": "Réinitialiser le formulaire"
     },
-    "saveError": "Échec de l'enregistrement. Réessayez."
+    "saveError": "Échec de l'enregistrement. Réessayez.",
+    "sheet": {
+      "editTitle": "Modifier l'effort"
+    },
+    "deleteTitle": "Supprimer cette entrée d'effort ?",
+    "deleteDescription": "L'entrée est supprimée définitivement. Le libellé, l'intensité et la note ne sont pas récupérables."
   },
   "lifeEvents": {
     "title": "Événement de vie",

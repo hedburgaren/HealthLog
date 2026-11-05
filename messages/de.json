@@ -13806,7 +13806,12 @@
       "notePlaceholder": "Was passiert ist, in deinen Worten?",
       "reset": "Formular zurücksetzen"
     },
-    "saveError": "Speichern fehlgeschlagen. Versuche es erneut."
+    "saveError": "Speichern fehlgeschlagen. Versuche es erneut.",
+    "sheet": {
+      "editTitle": "Akutes Ereignis bearbeiten"
+    },
+    "deleteTitle": "Dieses akute Ereignis löschen?",
+    "deleteDescription": "Der Eintrag wird endgültig entfernt. Intensität und Notiz sind nicht wiederherstellbar."
   },
   "exertion": {
     "entry": {
@@ -13828,7 +13833,12 @@
       "notePlaceholder": "Sonst noch etwas?",
       "reset": "Formular zurücksetzen"
     },
-    "saveError": "Speichern fehlgeschlagen. Versuche es erneut."
+    "saveError": "Speichern fehlgeschlagen. Versuche es erneut.",
+    "sheet": {
+      "editTitle": "Anstrengung bearbeiten"
+    },
+    "deleteTitle": "Diesen Anstrengungseintrag löschen?",
+    "deleteDescription": "Der Eintrag wird endgültig entfernt. Bezeichnung, Intensität und Notiz sind nicht wiederherstellbar."
   },
   "lifeEvents": {
     "title": "Lebensereignis",

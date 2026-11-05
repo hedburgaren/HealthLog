@@ -13806,7 +13806,12 @@
       "notePlaceholder": "Vad hände, i dina egna ord?",
       "reset": "Rensa formuläret"
     },
-    "saveError": "Kunde inte spara. Försök igen."
+    "saveError": "Kunde inte spara. Försök igen.",
+    "sheet": {
+      "editTitle": "Redigera akut händelse"
+    },
+    "deleteTitle": "Ta bort den här akuta händelsen?",
+    "deleteDescription": "Posten tas bort för gott. Intensiteten och anteckningen går inte att återfå."
   },
   "exertion": {
     "entry": {
@@ -13828,7 +13833,12 @@
       "notePlaceholder": "Något mer att anteckna?",
       "reset": "Rensa formuläret"
     },
-    "saveError": "Kunde inte spara. Försök igen."
+    "saveError": "Kunde inte spara. Försök igen.",
+    "sheet": {
+      "editTitle": "Redigera ansträngning"
+    },
+    "deleteTitle": "Ta bort den här ansträngningen?",
+    "deleteDescription": "Posten tas bort för gott. Benämningen, intensiteten och anteckningen går inte att återfå."
   },
   "lifeEvents": {
     "title": "Livshändelse",

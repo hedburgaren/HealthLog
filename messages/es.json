@@ -13806,7 +13806,12 @@
       "notePlaceholder": "Qué pasó, con tus palabras.",
       "reset": "Reiniciar formulario"
     },
-    "saveError": "No se pudo guardar. Inténtalo de nuevo."
+    "saveError": "No se pudo guardar. Inténtalo de nuevo.",
+    "sheet": {
+      "editTitle": "Editar evento agudo"
+    },
+    "deleteTitle": "¿Eliminar este evento agudo?",
+    "deleteDescription": "El registro se elimina para siempre. La intensidad y la nota no se pueden recuperar."
   },
   "exertion": {
     "entry": {
@@ -13828,7 +13833,12 @@
       "notePlaceholder": "¿Algo más que anotar?",
       "reset": "Reiniciar formulario"
     },
-    "saveError": "No se pudo guardar. Inténtalo de nuevo."
+    "saveError": "No se pudo guardar. Inténtalo de nuevo.",
+    "sheet": {
+      "editTitle": "Editar registro de esfuerzo"
+    },
+    "deleteTitle": "¿Eliminar este registro de esfuerzo?",
+    "deleteDescription": "El registro se elimina para siempre. La etiqueta, la intensidad y la nota no se pueden recuperar."
   },
   "lifeEvents": {
     "title": "Acontecimiento vital",

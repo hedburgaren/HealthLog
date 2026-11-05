@@ -65,6 +65,8 @@ export interface SelectionBarProps {
   seriesFormat: SeriesValueFormat;
   onOpenDay: (date: string) => void;
   onEditLifeEvent?: (id: string) => void;
+  onEditAcuteEvent?: (id: string) => void;
+  onEditExertion?: (id: string) => void;
 }
 
 export function SelectionBar({
@@ -76,6 +78,8 @@ export function SelectionBar({
   seriesColor,
   seriesFormat,
   onOpenDay,
+  onEditAcuteEvent,
+  onEditExertion,
   onEditLifeEvent,
 }: SelectionBarProps) {
   const { t, tCount, locale } = useTranslations();
@@ -168,7 +172,10 @@ export function SelectionBar({
             {tag}
           </span>
         ) : null;
-        const editable = item.kind === "lifeEvent" && onEditLifeEvent;
+        const editable =
+          (item.kind === "lifeEvent" && onEditLifeEvent) ||
+          (item.kind === "acuteEvent" && onEditAcuteEvent) ||
+          (item.kind === "exertion" && onEditExertion);
         if (!canOpenDay && !editable) {
           return (
             <span
@@ -192,7 +199,13 @@ export function SelectionBar({
             data-slot="timeline-selection-chip"
             data-item={item.id}
             onClick={() =>
-              editable ? onEditLifeEvent(item.id) : onOpenDay(day)
+              editable
+                ? item.kind === "lifeEvent"
+                  ? onEditLifeEvent?.(item.id)
+                  : item.kind === "acuteEvent"
+                    ? onEditAcuteEvent?.(item.id)
+                    : onEditExertion?.(item.id)
+                : onOpenDay(day)
             }
             className="bg-muted text-foreground text-2xs hover:bg-accent focus-visible:ring-ring/50 inline-flex min-h-11 items-center gap-1.5 rounded-full px-2.5 py-1 font-medium outline-none focus-visible:ring-2 sm:min-h-7"
           >

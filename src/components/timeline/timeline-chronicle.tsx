@@ -189,6 +189,8 @@ export function TimelineChronicle({
   seriesColor,
   seriesFormat,
   onOpenDay,
+  onEditAcuteEvent = null,
+  onEditExertion = null,
   onEditLifeEvent,
 }: {
   timeline: TimelineResponse;
@@ -201,6 +203,8 @@ export function TimelineChronicle({
   seriesFormat: SeriesValueFormat;
   onOpenDay: (date: string) => void;
   onEditLifeEvent: ((id: string) => void) | null;
+  onEditAcuteEvent?: ((id: string) => void) | null;
+  onEditExertion?: ((id: string) => void) | null;
 }) {
   const { t, tCount, locale } = useTranslations();
   const words = useItemWords();
@@ -341,11 +345,18 @@ export function TimelineChronicle({
             precision === "DAY"
               ? formatDayMonth(entry.date, intl)
               : formatAtPrecision(entry.date, precision, intl);
-          const isLifeEvent =
-            entry.kind === "item" && entry.item.kind === "lifeEvent";
+          const itemKind = entry.kind === "item" ? entry.item.kind : null;
+          const editHandler =
+            itemKind === "lifeEvent"
+              ? onEditLifeEvent
+              : itemKind === "acuteEvent"
+                ? onEditAcuteEvent
+                : itemKind === "exertion"
+                  ? onEditExertion
+                  : null;
           const action =
-            isLifeEvent && onEditLifeEvent && entry.kind === "item"
-              ? () => onEditLifeEvent(entry.item.id)
+            itemKind && editHandler && entry.kind === "item"
+              ? () => editHandler(entry.item.id)
               : precision === "DAY"
                 ? () => onOpenDay(entry.date)
                 : null;

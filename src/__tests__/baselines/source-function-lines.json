@@ -1,7 +1,7 @@
 {
   "$comment": "Production functions over 200 lines, keyed \"file :: name\", and their length. Maintained by src/__tests__/source-size-ratchet.test.ts.",
   "count": 345,
-  "total": 113348,
+  "total": 113618,
   "entries": {
     "app/achievements/page.tsx :: AchievementsPage": 206,
     "app/api/admin/backups/upload/route.ts :: apiHandler(arg)": 275,
@@ -233,8 +233,8 @@
     "components/targets/target-edit-sheet.tsx :: TargetEditSheetBody": 474,
     "components/timeline/life-event-form.tsx :: LifeEventForm": 281,
     "components/timeline/timeline-chart.tsx :: ChartBody": 236,
-    "components/timeline/timeline-chronicle.tsx :: TimelineChronicle": 246,
-    "components/timeline/timeline-view.tsx :: TimelineView": 486,
+    "components/timeline/timeline-chronicle.tsx :: TimelineChronicle": 258,
+    "components/timeline/timeline-view.tsx :: TimelineView": 534,
     "components/ui/responsive-sheet.tsx :: ResponsiveSheet": 239,
     "components/vaccinations/catalog-picker.tsx :: CatalogPicker": 221,
     "components/vaccinations/custom-vaccine-sheet.tsx :: CustomVaccineSheet": 246,
@@ -352,6 +352,7 @@
     "components/dashboard/quick-entry-sheets.tsx :: QuickEntrySheets": 240,
     "components/exertion/exertion-form.tsx :: ExertionForm": 272,
     "lib/insights/discovery-matrix.ts :: assembleDiscoveryMatrix": 207,
-    "components/checkin/checkin-form.tsx :: CheckinForm": 393
+    "components/checkin/checkin-form.tsx :: CheckinForm": 393,
+    "components/exertion/exertion-sheet.tsx :: ExertionSheet": 210
   }
 }

@@ -13806,7 +13806,12 @@
       "notePlaceholder": "Co się stało, twoimi słowami?",
       "reset": "Wyczyść formularz"
     },
-    "saveError": "Nie udało się zapisać. Spróbuj ponownie."
+    "saveError": "Nie udało się zapisać. Spróbuj ponownie.",
+    "sheet": {
+      "editTitle": "Edytuj ostre zdarzenie"
+    },
+    "deleteTitle": "Usunąć to ostre zdarzenie?",
+    "deleteDescription": "Wpis zostanie usunięty na stałe. Intensywności i notatki nie da się odzyskać."
   },
   "exertion": {
     "entry": {
@@ -13828,7 +13833,12 @@
       "notePlaceholder": "Coś jeszcze do zapisku?",
       "reset": "Wyczyść formularz"
     },
-    "saveError": "Nie udało się zapisać. Spróbuj ponownie."
+    "saveError": "Nie udało się zapisać. Spróbuj ponownie.",
+    "sheet": {
+      "editTitle": "Edytuj wpis wysiłku"
+    },
+    "deleteTitle": "Usunąć ten wpis wysiłku?",
+    "deleteDescription": "Wpis zostanie usunięty na stałe. Etykiety, intensywności i notatki nie da się odzyskać."
   },
   "lifeEvents": {
     "title": "Wydarzenie życiowe",

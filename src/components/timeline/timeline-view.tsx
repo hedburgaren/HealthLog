@@ -59,6 +59,12 @@ import {
 import { LabExcludedNote } from "./lab-lines";
 import { TimelineLegend } from "./timeline-legend";
 import { LifeEventSheet } from "./life-event-sheet";
+import { AcuteEventSheet } from "@/components/acute-events/acute-event-sheet.lazy";
+import { ExertionSheet } from "@/components/exertion/exertion-sheet.lazy";
+import type { AcuteEventSheetTarget } from "@/components/acute-events/acute-event-sheet";
+import type { ExertionSheetTarget } from "@/components/exertion/exertion-sheet";
+import { useAcuteEvents } from "@/components/acute-events/use-acute-events";
+import { useExertionEvents } from "@/components/exertion/use-exertion";
 import { ReadinessCard } from "./readiness-card";
 import {
   READINESS_CARD_DISMISSED_KEY,
@@ -213,6 +219,43 @@ export function TimelineView() {
   const dayParam = parseDayParam(searchParams.get(DAY_QUERY_PARAM), today);
   // Life events are written in one's own record only (owner-only routes).
   const canAddLifeEvent = !caps.inSharedRecord;
+
+  // The acute events and the exertion entries are own-record rows, so the
+  // edit flow rides the same gate as the life-event sheet.
+  const canEditOwnLogs = !caps.inSharedRecord;
+  const acuteEvents = useAcuteEvents(null, null, { enabled: canEditOwnLogs });
+  const exertionEvents = useExertionEvents(null, null, {
+    enabled: canEditOwnLogs,
+  });
+  const [editingAcute, setEditingAcute] =
+    useState<AcuteEventSheetTarget | null>(null);
+  const [editingExertion, setEditingExertion] =
+    useState<ExertionSheetTarget | null>(null);
+
+  function editAcuteEvent(id: string) {
+    const event = acuteEvents.data?.events.find((e) => e.id === id);
+    if (!event) return;
+    setEditingAcute({
+      id: event.id,
+      category: event.category,
+      occurredAt: event.occurredAt,
+      intensity: event.intensity,
+      note: event.note,
+    });
+  }
+
+  function editExertion(id: string) {
+    const event = exertionEvents.data?.events.find((e) => e.id === id);
+    if (!event) return;
+    setEditingExertion({
+      id: event.id,
+      label: event.label,
+      occurredAt: event.occurredAt,
+      intensity: event.intensity,
+      durationMin: event.durationMin,
+      note: event.note,
+    });
+  }
 
   // The zoom and a chosen range live in the URL (`timeline-url.ts`), so Back
   // and a bookmark return to them. Without a `zoom` the page opens on three
@@ -599,6 +642,8 @@ export function TimelineView() {
                   seriesFormat={seriesFormat}
                   onOpenDay={openDay}
                   onEditLifeEvent={canAddLifeEvent ? editLifeEvent : undefined}
+                  onEditAcuteEvent={canEditOwnLogs ? editAcuteEvent : undefined}
+                  onEditExertion={canEditOwnLogs ? editExertion : undefined}
                 />
                 <TimelineLegend
                   bucket={data.bucket}
@@ -668,6 +713,8 @@ export function TimelineView() {
               seriesFormat={seriesFormat}
               onOpenDay={openDay}
               onEditLifeEvent={canAddLifeEvent ? editLifeEvent : null}
+              onEditAcuteEvent={canEditOwnLogs ? editAcuteEvent : null}
+              onEditExertion={canEditOwnLogs ? editExertion : null}
             />
           </div>
         </>
@@ -683,6 +730,18 @@ export function TimelineView() {
           open={sheetOpen}
           onOpenChange={setSheetOpen}
           event={editing}
+        />
+      )}
+      {editingAcute && (
+        <AcuteEventSheet
+          target={editingAcute}
+          onClose={() => setEditingAcute(null)}
+        />
+      )}
+      {editingExertion && (
+        <ExertionSheet
+          target={editingExertion}
+          onClose={() => setEditingExertion(null)}
         />
       )}
     </div>

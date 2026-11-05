@@ -13806,7 +13806,12 @@
       "notePlaceholder": "Wat er gebeurde, in eigen woorden?",
       "reset": "Formulier wissen"
     },
-    "saveError": "Opslaan mislukt. Probeer het opnieuw."
+    "saveError": "Opslaan mislukt. Probeer het opnieuw.",
+    "sheet": {
+      "editTitle": "Acute gebeurtenis bewerken"
+    },
+    "deleteTitle": "Deze acute gebeurtenis verwijderen?",
+    "deleteDescription": "De regel wordt definitief verwijderd. Intensiteit en notitie zijn niet terug te halen."
   },
   "exertion": {
     "entry": {
@@ -13828,7 +13833,12 @@
       "notePlaceholder": "Nog iets om te noteren?",
       "reset": "Formulier wissen"
     },
-    "saveError": "Opslaan mislukt. Probeer het opnieuw."
+    "saveError": "Opslaan mislukt. Probeer het opnieuw.",
+    "sheet": {
+      "editTitle": "Inspanning bewerken"
+    },
+    "deleteTitle": "Deze inspanningsregel verwijderen?",
+    "deleteDescription": "De regel wordt definitief verwijderd. Label, intensiteit en notitie zijn niet terug te halen."
   },
   "lifeEvents": {
     "title": "Levensgebeurtenis",

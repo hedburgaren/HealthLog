@@ -13806,7 +13806,12 @@
       "notePlaceholder": "무슨 일이었는지, 직접 적어보세요.",
       "reset": "양식 초기화"
     },
-    "saveError": "저장하지 못했습니다. 다시 시도하세요."
+    "saveError": "저장하지 못했습니다. 다시 시도하세요.",
+    "sheet": {
+      "editTitle": "급성 사건 편집"
+    },
+    "deleteTitle": "이 급성 사건을 삭제할까요?",
+    "deleteDescription": "항목이 영구히 삭제됩니다. 강도와 메모는 복구할 수 없어요."
   },
   "exertion": {
     "entry": {
@@ -13828,7 +13833,12 @@
       "notePlaceholder": "더 적을 내용이 있나요?",
       "reset": "양식 초기화"
     },
-    "saveError": "저장하지 못했습니다. 다시 시도하세요."
+    "saveError": "저장하지 못했습니다. 다시 시도하세요.",
+    "sheet": {
+      "editTitle": "신체 부담 기록 편집"
+    },
+    "deleteTitle": "이 신체 부담 기록을 삭제할까요?",
+    "deleteDescription": "항목이 영구히 삭제됩니다. 라벨, 강도, 메모는 복구할 수 없어요."
   },
   "lifeEvents": {
     "title": "삶의 사건",

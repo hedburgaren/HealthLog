@@ -305,6 +305,9 @@ export const acuteEventDependentKeys = [
 export const exertionDependentKeys = [
   queryKeys.workouts(),
   queryKeys.dayRoot(),
+  // The exertion entries render on the timeline's life lane, so a write
+  // evicts the timeline root beside the workouts root.
+  queryKeys.timelineRoot(),
 ];
 
 export const illnessDependentKeys = [
