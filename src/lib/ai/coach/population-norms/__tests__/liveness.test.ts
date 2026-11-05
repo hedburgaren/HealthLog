@@ -92,6 +92,21 @@ const SENTENCES: Record<Locale, readonly string[]> = {
     "Os adultos precisam de 8 horas de sono.",
     "A pressão arterial normal fica abaixo de 120/80.",
   ],
+  sv: [
+    "Referensintervallet är 60 till 100.",
+    "Referensvärden går från 4 till 6.",
+    "Det normala intervallet för vilopuls är 60.",
+    "Friska vuxna sover 7 till 9 timmar.",
+    "De flesta vuxna sover 8 timmar.",
+    "Riktlinjer rekommenderar 150 minuter i veckan.",
+    "Vuxna behöver 7 till 9 timmars sömn.",
+    "Normala blodtrycksvärden ligger under 120/80.",
+    "En normal vilopuls är mellan 50 och 60.",
+    "Normalt blodsocker är 4 till 6.",
+    "Normala värden för glukos är 4 till 6.",
+    "Ditt blodtryck är normalt under 120/80.",
+    "Vanliga vilopulsvärden är 50 till 60.",
+  ],
 };
 
 describe("population-norm banks: no pattern is dead", () => {

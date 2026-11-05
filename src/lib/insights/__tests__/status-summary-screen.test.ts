@@ -24,6 +24,7 @@ const DOSE_VIOLATION: Record<string, string> = {
   ko: '{"summary":"다음 주에 2.4mg으로 늘려 보세요."}',
   nl: '{"summary":"Verhoog je dosis volgende week naar 2,4 mg."}',
   "pt-BR": '{"summary":"Aumente sua dose para 2,4 mg na próxima semana."}',
+  sv: '{"summary":"Öka dosen till 10 mg nästa vecka."}',
 };
 
 const CAUSAL_VIOLATION: Record<string, string> = {
@@ -36,6 +37,7 @@ const CAUSAL_VIOLATION: Record<string, string> = {
   ko: '{"summary":"수면 때문에 체중이 줄었어요."}',
   nl: '{"summary":"Je gewicht daalde omdat je meer sliep."}',
   "pt-BR": '{"summary":"Seu peso caiu porque você dormiu mais."}',
+  sv: '{"summary":"Din vikt sjönk eftersom du sov bättre."}',
 };
 
 const CLEAN: Record<string, string> = {
@@ -49,6 +51,7 @@ const CLEAN: Record<string, string> = {
   nl: '{"summary":"Je gewicht ligt deze week gemiddeld op 82 kg, stabiel ten opzichte van vorige maand."}',
   "pt-BR":
     '{"summary":"Seu peso está em média em 82 kg nesta semana, estável em relação ao mês passado."}',
+  sv: '{"summary":"Din vikt ligger i snitt på 82 kg den här veckan, stabilt jämfört med förra månaden."}',
 };
 
 describe("finalizeStatusSummary — dose prescriptions are withheld", () => {

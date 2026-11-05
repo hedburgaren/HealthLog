@@ -178,6 +178,20 @@ const NORMATIVE_KEYWORDS: Record<Locale, readonly string[]> = {
     "superior a",
     "inferior a",
   ],
+  sv: [
+    "malvardet",
+    "malvarde",
+    "malet",
+    "rekommenderas",
+    "rekommenderad",
+    "rekommenderat",
+    "bor",
+    "borde",
+    "normalintervallet",
+    "normalvarde",
+    "over rekommenderad",
+    "under malet",
+  ],
 };
 
 /**

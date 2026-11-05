@@ -18,4 +18,5 @@ export const INSIGHTS_LOCALE_REPLY_FOOTER_FALLBACK: Record<
   ko: "\n\nREPLY LANGUAGE: render all user-facing strings in Korean, in the 해요체 register throughout (never 합쇼체 or plain 한다체). Use natural Korean health vocabulary. The severity / sourceWindow / sourceMetric / topic enum values stay in lowercase English exactly as listed in OUTPUT FORMAT — those are contract keys, NOT translations.",
   "pt-BR":
     "\n\nREPLY LANGUAGE: render all user-facing strings in Brazilian Portuguese (pt-BR, never European Portuguese), addressing the user as você throughout. Use natural Brazilian health vocabulary. The severity / sourceWindow / sourceMetric / topic enum values stay in lowercase English exactly as listed in OUTPUT FORMAT — those are contract keys, NOT translations.",
+  sv: "\n\nREPLY LANGUAGE: render all user-facing strings in Swedish, addressing the user as du throughout. Use natural Swedish health vocabulary. The severity / sourceWindow / sourceMetric / topic enum values stay in lowercase English exactly as listed in OUTPUT FORMAT — those are contract keys, NOT translations.",
 };

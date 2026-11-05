@@ -36,6 +36,7 @@ const NAMES: Record<Locale, readonly string[]> = {
   nl: ["Ramipril 5 mg", "Amlodipine", "Eliquis"],
   "pt-BR": ["Ramipril 5 mg", "Anlodipino", "Eliquis"],
   ko: ["라미프릴", "암로디핀", "엘리퀴스"],
+  sv: ["Ramipril 5 mg", "Amlodipin", "Eliquis"],
 };
 
 const VIOLATIONS: Record<Locale, readonly string[]> = {
@@ -123,6 +124,17 @@ const VIOLATIONS: Record<Locale, readonly string[]> = {
     "항응고제를 중단하세요.",
     "인슐린을 추가로 맞으세요.",
     "하루 두 알 드세요.",
+  ],
+  sv: [
+    "Ta en extra ramipril.",
+    "hoppa över amlodipinet",
+    "Ta en tablett ramipril till.",
+    "Sluta ta blodförtunnande innan löparturen.",
+    "Ta två tabletter ramipril ikväll.",
+    "Ta en till tablett amlodipin ikväll.",
+    "Pausa Eliquis på helgen.",
+    "Ta bort Eliquis imorgon.",
+    "Ta en halv tablett till amlodipin.",
   ],
 };
 
@@ -222,6 +234,17 @@ const CLEAN: Record<Locale, readonly string[]> = {
     "암로디핀을 건너뛰지 마세요.",
     "물을 한 잔 더 드세요.",
     "라미프릴을 한 알 더 드시지 마세요.",
+  ],
+  sv: [
+    "Din ramiprillogg visar att varje dos tagits.",
+    "Hoppa inte över din ramipril.",
+    "Ta aldrig en extra amlodipin för att kompensera en glömd.",
+    "Enligt din logg tog du en extra ramipril på tisdagen.",
+    "Ta en extra promenad efter middagen.",
+    "Ta din ramipril som ordinerat.",
+    "Ramipril och amlodipin sänker båda blodtrycket.",
+    "Sluta dricka kaffe på kvällen.",
+    "Ta en till mätning ikväll.",
   ],
 };
 

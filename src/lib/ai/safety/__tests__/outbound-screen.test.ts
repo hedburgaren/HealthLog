@@ -26,6 +26,7 @@ const DOSE_VIOLATIONS: Record<Locale, string> = {
   nl: "Verhoog je dosis volgende week naar 2,4 mg.",
   "pt-BR": "Aumente sua dose para 2,4 mg na próxima semana.",
   ko: "다음 주에 2.4mg으로 늘려 보세요.",
+  sv: "Höj dosen till 2,4 mg nästa vecka.",
 };
 
 /**
@@ -35,6 +36,7 @@ const DOSE_VIOLATIONS: Record<Locale, string> = {
  */
 const DOSE_CLEAN: Record<Locale, string> = {
   en: "You're in week 3 on 7.5 mg, and your weight is tracking down.",
+  sv: "Du är i vecka 3 på 7,5 mg, och din vikt går nedåt.",
   de: "Du bist in Woche 3 bei 7,5 mg, und dein Gewicht geht zurück.",
   fr: "Vous êtes en semaine 3 à 7,5 mg, et votre poids diminue.",
   es: "Está en la semana 3 con 7,5 mg, y su peso está bajando.",
@@ -103,6 +105,7 @@ const RISK_VIOLATIONS: Record<Locale, string> = {
   nl: "Je risico ligt op ongeveer 12%.",
   "pt-BR": "Seu risco é de cerca de 12%.",
   ko: "10년 심혈관 위험도는 약 12%예요.",
+  sv: "Din risk för hjärt- och kärlsjukdom inom 10 år är cirka 20 %.",
 };
 
 /** A plain percentage that is NOT a clinical risk claim must pass. */
@@ -116,6 +119,7 @@ const RISK_CLEAN: Record<Locale, string> = {
   nl: "Je therapietrouw was 92% in de afgelopen 30 dagen.",
   "pt-BR": "Sua adesão foi de 92% nos últimos 30 dias.",
   ko: "지난 30일 복약 순응도는 92%였어요.",
+  sv: "Din efterlevnad var 92 % under de senaste 30 dagarna.",
 };
 
 describe("screenModelOutput — risk-score, all six locales", () => {
@@ -373,6 +377,7 @@ const CAUSAL_VIOLATIONS: Record<Locale, string> = {
   pl: "Waga spadła, ponieważ spał Pan więcej.",
   nl: "Je gewicht daalde omdat je meer sliep.",
   "pt-BR": "Seu peso caiu porque você dormiu mais.",
+  sv: "Din vikt föll eftersom du sov bättre.",
   ko: "수면 때문에 체중이 줄었어요.",
 };
 
@@ -386,6 +391,7 @@ const CAUSAL_CLEAN: Record<Locale, string> = {
   pl: "Waga zmieniała się razem ze snem w tym tygodniu.",
   nl: "Je gewicht bewoog deze week mee met je slaap.",
   "pt-BR": "Seu peso acompanhou o seu sono nesta semana.",
+  sv: "Din vikt följde din sömn den här veckan.",
   ko: "이번 주 체중은 수면과 함께 움직였어요.",
 };
 
@@ -623,6 +629,30 @@ const DOSE_CLASS_VIOLATIONS: Record<Locale, readonly string[]> = {
     "저녁 인슐린 용량을 건너뛰세요.",
     "메트포르민 복용을 중단하세요.",
   ],
+  sv: [
+    "Halvera dosen.",
+    "Ta bara halva dosen.",
+    "Ta hälften av dosen.",
+    "Dela tabletten på mitten.",
+    "Sänk dosen.",
+    "Höj insulinet.",
+    "Sänk din ramipril lite.",
+    "Höj din metformin till 2000 mg dagligen.",
+    "Höj ditt insulin med 4 enheter ikväll.",
+    "Höj din metformin till 1500 mg.",
+    "Ta 2 tabletter på kvällen.",
+    "Hoppa över kvällsdosen.",
+    "Sluta ta metformin.",
+    "Du bör sluta ta din lisinopril.",
+    "Sänk dosen till 5 mg.",
+    "Dubbla dosen av vitamin D till 4000 IE.",
+    "Ta 2000 mg dagligen.",
+    "Ta 3 tabletter metformin med middagen.",
+    "Du borde prova 5 mg.",
+    "Höj dosen till 20 mg.",
+    "Sluta med blodförtunnande.",
+    "Ta en extra dos ikväll.",
+  ],
 };
 
 /**
@@ -750,6 +780,20 @@ const DOSE_CLASS_CLEAN: Record<Locale, readonly string[]> = {
     "용량을 늘릴지 의사와 상담하세요.",
     "담배를 끊으세요.",
     "혈당을 140mg/dL 아래로 유지해 보세요.",
+  ],
+  sv: [
+    "Minska ditt sockerintag till hälften.",
+    "Minska inte dosen.",
+    "Ta en halvtimme på dig att gå.",
+    "Du tar 1000 mg två gånger om dagen.",
+    "Din logg visar 2000 mg.",
+    "Hoppa inte över kvällsdosen.",
+    "Prata med din läkare innan du höjer dosen.",
+    "Dosen höjdes till 2000 mg i maj.",
+    "Fördubbla dina steg i två veckor.",
+    "Sänk ditt natrium till 1500 mg per dag.",
+    "Öka ditt vattenintag till 2000 ml.",
+    "Försök hålla glukosen under 140 mg/dL efter måltiderna.",
   ],
 };
 

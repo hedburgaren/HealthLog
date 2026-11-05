@@ -11324,6 +11324,12 @@
       },
       "zelfmoordlijn1813": {
         "name": "Zelfmoordlijn 1813 (Belgio, 24 ore su 24, gratuito, anonimo)"
+      },
+      "sjalvmordslinjen": {
+        "name": "Mind Självmordslinjen (Svezia, 24/7, gratuito, anonimo)"
+      },
+      "vardguiden1177": {
+        "name": "1177 Vårdguiden (consulenza sanitaria svedese, per telefono o chat)"
       }
     },
     "instrumentDescription": {

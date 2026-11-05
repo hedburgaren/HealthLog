@@ -604,6 +604,7 @@ describe("tokenizing prose written in the reader's language", () => {
     ["it", "Il 21 luglio la pressione era di 128 mmHg."],
     ["pl", "21 lipca ciśnienie wynosiło 128 mmHg."],
     ["pt-BR", "Em 21 de julho, sua pressão era de 128 mmHg."],
+    ["sv", "Den 21 juli var ditt blodtryck 128 mmHg."],
   ] as const)("leaves a written %s date alone", (locale, prose) => {
     const findings = findUnverifiedCoachNumbers(
       prose,
@@ -679,6 +680,7 @@ describe("population-norm banks, one per locale", () => {
     nl: "Gezonde volwassenen slapen 7 tot 9 uur.",
     ko: "건강한 성인은 7~9시간 자요.",
     "pt-BR": "A maioria dos adultos precisa de 7 a 9 horas de sono.",
+    sv: "De flesta vuxna behöver 7 till 9 timmars sömn.",
   };
 
   it.each(locales)("%s reads its reference sentence as a norm", (locale) => {

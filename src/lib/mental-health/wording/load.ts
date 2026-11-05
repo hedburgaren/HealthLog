@@ -11,6 +11,7 @@ import type { LocaleWording } from "./types";
 const LOADERS: Record<Locale, () => Promise<{ default: LocaleWording }>> = {
   en: () => import("./locales/en"),
   de: () => import("./locales/de"),
+  sv: () => import("./locales/sv"),
   es: () => import("./locales/es"),
   fr: () => import("./locales/fr"),
   it: () => import("./locales/it"),

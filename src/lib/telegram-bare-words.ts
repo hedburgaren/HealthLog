@@ -34,6 +34,7 @@ const BARE_WORDS: Readonly<Record<Locale, BareWords>> = {
   ko: { help: ["도움말", "도움"], greeting: ["안녕", "안녕하세요"] },
   nl: { help: ["hulp"], greeting: ["hoi", "hallo", "goedemorgen"] },
   "pt-BR": { help: ["ajuda"], greeting: ["oi", "ola", "bom dia"] },
+  sv: { help: ["hjälp"], greeting: ["hej", "hejsan", "tjenare"] },
 };
 
 /** "Help", in every language the app ships. */

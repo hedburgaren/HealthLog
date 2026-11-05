@@ -33,6 +33,7 @@ const INTL_LOCALE_MAP: Record<Locale, string> = {
   ko: "ko-KR",
   nl: "nl-NL",
   "pt-BR": "pt-BR",
+  sv: "sv-SE",
 };
 
 export function resolveIntlLocale(locale: Locale): string {

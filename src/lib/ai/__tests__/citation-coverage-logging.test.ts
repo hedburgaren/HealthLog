@@ -255,6 +255,7 @@ describe("normative-claim detection across the shipped locales", () => {
     nl: "Je bovendruk zou onder de streefwaarde van 130 mmHg moeten blijven.",
     ko: "수축기 혈압은 목표인 130 mmHg 아래로 유지해야 해요.",
     "pt-BR": "Sua sistólica deveria ficar abaixo da meta de 130 mmHg.",
+    sv: "Din systoliska bör ligga under målvärdet på 130 mmHg.",
   };
 
   /**
@@ -273,6 +274,7 @@ describe("normative-claim detection across the shipped locales", () => {
     ko: "7일 평균이 90일 중앙값보다 4 mmHg 더 커요.",
     "pt-BR":
       "Sua média de 7 dias está 4 mmHg mais alta que a sua mediana de 90 dias.",
+    sv: "Ditt 7-dagars snitt ligger 4 mmHg högre än ditt 90-dagars medianvärde.",
   };
 
   it.each(locales)("carries a non-empty keyword bank for %s", (locale) => {

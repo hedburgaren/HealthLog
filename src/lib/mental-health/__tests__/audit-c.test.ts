@@ -76,7 +76,7 @@ describe("AUDIT-C instrument", () => {
   it("knows which languages are validated", () => {
     expect(["de", "en", "ko", "pl"].every(isValidatedAuditCLocale)).toBe(true);
     expect(["es", "fr", "it"].some(isValidatedAuditCLocale)).toBe(false);
-    expect(normaliseAuditCLocale("sv-SE")).toBe("en");
+    expect(normaliseAuditCLocale("sv-SE")).toBe("sv");
     expect(normaliseAuditCLocale("de-AT")).toBe("de");
     // A shipped region tag keeps its region instead of collapsing to "pt".
     expect(normaliseAuditCLocale("pt-BR")).toBe("pt-BR");

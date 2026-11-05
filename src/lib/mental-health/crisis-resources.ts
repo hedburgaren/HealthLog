@@ -89,6 +89,19 @@ const DE_AT_CH: CrisisResourceSet = {
 };
 
 /** United States (en-US region hint) — 988 + Crisis Text Line. */
+/** Sweden (sv): Mind Självmordslinjen, the care guide, acute emergency. */
+const SE: CrisisResourceSet = {
+  emergencyNumber: "112",
+  resources: [
+    {
+      id: "sjalvmordslinjen",
+      contacts: ["90101", "mind.sjalvmordslinjen.se"],
+    },
+    { id: "vardguiden1177", contacts: ["1177", "1177.se"] },
+    { id: "findahelpline", contacts: ["findahelpline.com"] },
+  ],
+};
+
 const US: CrisisResourceSet = {
   emergencyNumber: "911",
   resources: [
@@ -223,5 +236,6 @@ export function crisisResourcesForLocale(
   if (lc === "nl-be" || lc === "be") return BE;
   // The bare "nl" the web stores, and any other Dutch tag: both countries.
   if (lc === "nl" || lc.startsWith("nl-")) return NL_BE;
+  if (lc.startsWith("sv")) return SE;
   return INTERNATIONAL;
 }

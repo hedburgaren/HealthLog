@@ -104,6 +104,7 @@ const VERDICT_STEADY: Localized<string> = {
   pl: "Stabilnie, tak jak zwykle",
   nl: "Stabiel en zoals gewoonlijk",
   "pt-BR": "Estável e como de costume",
+  sv: "Stabilt och som vanligt",
 };
 
 const VERDICT_FAVOURABLE: Localized<string> = {
@@ -115,6 +116,7 @@ const VERDICT_FAVOURABLE: Localized<string> = {
   pl: "To zmierza w dobrym kierunku",
   nl: "Dit gaat de goede kant op",
   "pt-BR": "Isso está indo numa boa direção",
+  sv: "Det går i en bra riktning",
 };
 
 const VERDICT_OFF_USUAL: Localized<string> = {
@@ -126,6 +128,7 @@ const VERDICT_OFF_USUAL: Localized<string> = {
   pl: "Ostatnio nieco poza twoim zwykłym zakresem",
   nl: "De laatste tijd iets buiten je gebruikelijke bereik",
   "pt-BR": "Ultimamente um pouco fora do seu padrão habitual",
+  sv: "Den senaste tiden lite utanför ditt vanliga läge",
 };
 
 function verdictLead(
@@ -201,6 +204,8 @@ const VALUE_VS_BASELINE: Localized<
     `${l} staat nu op ${c}, ${higher ? "hoger" : "lager"} dan je gebruikelijke gemiddelde van ${b}.`,
   "pt-BR": (l, c, b, higher) =>
     `${l} está em ${c} agora, ${higher ? "acima" : "abaixo"} da sua média habitual de ${b}.`,
+  sv: (l, c, b, higher) =>
+    `${l} ligger just nu på ${c}, ${higher ? "högre" : "lägre"} än ditt vanliga snitt på ${b}.`,
 };
 
 const VALUE_AT_BASELINE: Localized<(label: string, current: string) => string> =
@@ -216,6 +221,8 @@ const VALUE_AT_BASELINE: Localized<(label: string, current: string) => string> =
     nl: (l, c) =>
       `${l} staat op ${c}, ongeveer op je gebruikelijke gemiddelde.`,
     "pt-BR": (l, c) => `${l} está em ${c}, bem perto da sua média habitual.`,
+    sv: (l, c) =>
+      `${l} ligger just nu på ${c}, precis runt ditt vanliga snitt.`,
   };
 
 const VALUE_ALONE: Localized<(label: string, current: string) => string> = {
@@ -227,6 +234,7 @@ const VALUE_ALONE: Localized<(label: string, current: string) => string> = {
   pl: (l, c) => `${l} wynosi obecnie ${c}.`,
   nl: (l, c) => `${l} staat nu op ${c}.`,
   "pt-BR": (l, c) => `${l} está em ${c} agora.`,
+  sv: (l, c) => `${l} ligger just nu på ${c}.`,
 };
 
 const CLOSER_IN_RANGE: Localized<string> = {
@@ -239,6 +247,7 @@ const CLOSER_IN_RANGE: Localized<string> = {
   nl: "Dat valt binnen je gebruikelijke bereik, dus niets waar je nu iets mee hoeft te doen.",
   "pt-BR":
     "Isso está dentro da sua faixa habitual, nada que peça uma ação agora.",
+  sv: "Det ligger inom ditt vanliga intervall, inget du behöver göra något åt just nu.",
 };
 
 const CLOSER_UNKNOWN_SWING: Localized<string> = {
@@ -251,6 +260,7 @@ const CLOSER_UNKNOWN_SWING: Localized<string> = {
   nl: "Met nog een paar metingen wordt de trend betrouwbaar. Houd hem de komende dagen in de gaten.",
   "pt-BR":
     "Mais algumas medições vão tornar a tendência confiável. Acompanhe nos próximos dias.",
+  sv: "Några mätningar till gör trenden pålitlig, följ den de kommande dagarna.",
 };
 
 /**
@@ -326,6 +336,7 @@ const BLOOD_PRESSURE_COPY: FallbackCopy = {
     pl: "twoje ciśnienie krwi",
     nl: "je bloeddruk",
     "pt-BR": "sua pressão arterial",
+    sv: "ditt blodtryck",
   },
   unit: "",
   digits: 0,
@@ -339,6 +350,7 @@ const BLOOD_PRESSURE_COPY: FallbackCopy = {
     nl: "Een paar rustige metingen onder dezelfde omstandigheden laten zien of dit de trend is of een losse uitschieter.",
     "pt-BR":
       "Algumas medições tranquilas nas mesmas condições vão mostrar se isso é a tendência ou um valor isolado.",
+    sv: "Några lugna mätningar under samma förhållanden visar om det är trenden eller en enskild avvikelse.",
   },
 };
 
@@ -352,6 +364,7 @@ const WEIGHT_COPY: FallbackCopy = {
     pl: "twoja waga",
     nl: "je gewicht",
     "pt-BR": "seu peso",
+    sv: "din vikt",
   },
   unit: "",
   digits: 1,
@@ -365,6 +378,7 @@ const WEIGHT_COPY: FallbackCopy = {
     nl: "Weeg je een paar dagen op hetzelfde tijdstip, dan middelt de normale schommeling van dag tot dag zich vanzelf uit.",
     "pt-BR":
       "Pese-se no mesmo horário por alguns dias, e a oscilação normal do dia a dia se acerta sozinha.",
+    sv: "Väg dig vid samma tidpunkt några dagar, så jämnar den normala dagliga variationen ut sig.",
   },
 };
 
@@ -378,6 +392,7 @@ const PULSE_COPY: FallbackCopy = {
     pl: "twoje tętno spoczynkowe",
     nl: "je rusthartslag",
     "pt-BR": "seu pulso em repouso",
+    sv: "din vilopuls",
   },
   unit: " bpm",
   digits: 0,
@@ -391,6 +406,7 @@ const PULSE_COPY: FallbackCopy = {
     nl: "Meet hem ontspannen en op hetzelfde moment van de dag, dan zie je of de richting aanhoudt.",
     "pt-BR":
       "Meça com calma e no mesmo horário do dia para ver se a direção se mantém.",
+    sv: "Mät den avslappnat och vid samma tid på dagen, så ser du om riktningen håller i sig.",
   },
 };
 
@@ -404,6 +420,7 @@ const BMI_COPY: FallbackCopy = {
     pl: "twoje BMI",
     nl: "je BMI",
     "pt-BR": "seu IMC",
+    sv: "ditt BMI",
   },
   unit: "",
   digits: 1,
@@ -417,6 +434,7 @@ const BMI_COPY: FallbackCopy = {
     nl: "Bekijk hem samen met je gewichtstrend en vetpercentage over een paar weken, niet dag voor dag.",
     "pt-BR":
       "Leia junto com a tendência do seu peso e o percentual de gordura ao longo de algumas semanas, não dia a dia.",
+    sv: "Läs den tillsammans med viktrenden och kroppsfett över några veckor, inte dag för dag.",
   },
 };
 
@@ -430,6 +448,7 @@ const MOOD_COPY: FallbackCopy = {
     pl: "twój nastrój",
     nl: "je stemming",
     "pt-BR": "seu humor",
+    sv: "din stämning",
   },
   unit: "",
   digits: 1,
@@ -443,6 +462,7 @@ const MOOD_COPY: FallbackCopy = {
     nl: "Houd hem een paar dagen bij. Een terugkerend patroon zegt meer dan één losse dag.",
     "pt-BR":
       "Registre por alguns dias. Um padrão que se repete diz mais do que um dia isolado.",
+    sv: "Logga den några dagar, ett återkommande mönster säger mer än en enskild dag.",
   },
 };
 
@@ -456,6 +476,7 @@ const ADHERENCE_COPY: FallbackCopy = {
     pl: "twoja regularność przyjmowania leków",
     nl: "je medicijntrouw",
     "pt-BR": "sua adesão à medicação",
+    sv: "din läkemedelsefterlevnad",
   },
   unit: "%",
   digits: 0,
@@ -469,6 +490,7 @@ const ADHERENCE_COPY: FallbackCopy = {
     nl: "Een vast tijdstip of een korte herinnering vangt herhaalde vergeten innames het best op.",
     "pt-BR":
       "Um horário fixo ou um lembrete rápido é a forma mais confiável de evitar as tomadas esquecidas que se repetem.",
+    sv: "En fast tid eller en kort påminnelse fångar de upprepade glömda intagen bäst.",
   },
 };
 
@@ -483,6 +505,7 @@ const GENERIC_METRIC_POINTER: Localized<string> = {
   nl: "Een paar consistente metingen laten zien of dit de richting is of één enkele dag.",
   "pt-BR":
     "Algumas medições consistentes vão mostrar se essa é a direção ou só um dia isolado.",
+  sv: "Några konsekventa mätningar visar om det är riktningen eller en enskild dag.",
 };
 
 // ── public fallbacks ────────────────────────────────────────────────────────
@@ -545,6 +568,7 @@ const NO_READ_LEAD: Localized<string> = {
   nl: "Voor deze kaart is er nu geen beoordeling.",
   ko: "지금은 이 카드에 대한 평가가 없어요.",
   "pt-BR": "Não há avaliação disponível para este cartão no momento.",
+  sv: "Just nu finns ingen bedömning för det här kortet.",
 };
 
 function noReadLead(locale: InsightLocale): string {
@@ -592,6 +616,7 @@ const BIOMARKER_NAMED_LEAD: Localized<(named: string) => string> = {
   nl: (n) => `Er is nu geen beoordeling${n}.`,
   ko: (n) => `지금은${n} 평가가 없어요.`,
   "pt-BR": (n) => `Não há avaliação${n} no momento.`,
+  sv: (n) => `Just nu finns ingen bedömning${n}.`,
 };
 
 const BIOMARKER_NAMED_CLAUSE: Localized<(marker: string) => string> = {
@@ -604,6 +629,7 @@ const BIOMARKER_NAMED_CLAUSE: Localized<(marker: string) => string> = {
   nl: (m) => ` voor "${m}"`,
   ko: (m) => ` '${m}'에 대한`,
   "pt-BR": (m) => ` para "${m}"`,
+  sv: (m) => ` för "${m}"`,
 };
 
 export function getNoKeyBiomarkerStatusText(

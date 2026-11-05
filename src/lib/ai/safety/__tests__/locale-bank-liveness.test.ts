@@ -26,6 +26,7 @@ import { bank as pl } from "../outbound-screen/locales/pl";
 import { bank as nl } from "../outbound-screen/locales/nl";
 import { bank as ko } from "../outbound-screen/locales/ko";
 import { bank as ptBR } from "../outbound-screen/locales/pt-br";
+import { bank as sv } from "../outbound-screen/locales/sv";
 import type { LocaleBank } from "../outbound-screen/shared";
 
 const BANKS: Record<Locale, LocaleBank> = {
@@ -38,9 +39,54 @@ const BANKS: Record<Locale, LocaleBank> = {
   nl,
   ko,
   "pt-BR": ptBR,
+  sv,
 };
 
 const SENTENCES: Record<Locale, readonly string[]> = {
+  sv: [
+    "Halvera dosen.",
+    "Ta bara halva dosen.",
+    "Sänk dosen.",
+    "Höj din metformin till 2000 mg dagligen.",
+    "Ta 2000 mg dagligen.",
+    "Ta två tabletter.",
+    "Hoppa över din kvällsdos.",
+    "Sluta ta metformin.",
+    "Du bör sluta ta blodförtunnande.",
+    "Ta en dos till.",
+    "Ta ytterligare en tablett.",
+    "Sluta med blodförtunnande.",
+    "Sänk dosen till 5 mg.",
+    "Höj dosen till 20 mg.",
+    "Du borde prova 5 mg.",
+    "Nästa dos blir 20 mg.",
+    "Dubbla dosen i två veckor för att testa.",
+    "Risken är cirka 20 %.",
+    "Det finns 20 % risk.",
+    "Risken är 20 %.",
+    "Det finns 20 % sannolikhet.",
+    "Risken är tjugo procent.",
+    "Tjugo procent sannolikhet.",
+    "Risken för stroke inom 10 år är tjugo procent.",
+    "Tjugo procent är risken för stroke inom 10 år.",
+    "SCORE2 ger 20 %.",
+    "20 % enligt SCORE2.",
+    "SCORE2 placerar dig i hög risk.",
+    "SCORE2 visar hög risk.",
+    "Risken för stroke inom 10 år verkar förhöjd.",
+    "Vikten sjönk eftersom du sov bättre.",
+    "Den sjönk på grund av saltet.",
+    "Den sjönk pga saltet.",
+    "Den sjönk därför att du sov bättre.",
+    "Saltet orsakar höjningen.",
+    "Stressen förorsakade höjningen.",
+    "Den beror på sockret.",
+    "Saltet leder till höjningar.",
+    "Det resulterade i en sänkning.",
+    "Det skedde till följd av motionen.",
+    "Det skedde tack vare promenaderna.",
+    "Fortsätt ta din metformin enligt receptet.",
+  ],
   en: [
     "Reduce your dose by half.",
     "Take half your usual dose.",

@@ -1260,6 +1260,7 @@ const LOCALE_REPLY_FOOTER_FALLBACK: Record<
   ko: "\n\nREPLY LANGUAGE: respond in Korean. Use the 해요체 register throughout (never 합쇼체 or plain 한다체); use natural Korean health vocabulary.",
   "pt-BR":
     "\n\nREPLY LANGUAGE: respond in Brazilian Portuguese (pt-BR, never European Portuguese). Address the user as você throughout; use natural Brazilian health vocabulary.",
+  sv: "\n\nREPLY LANGUAGE: respond in Swedish. Address the user as du throughout (never formal ni for a single reader); use natural Swedish health vocabulary.",
 };
 
 /**
@@ -1297,7 +1298,12 @@ export function getCoachSystemPrompt(
     base = COACH_PROMPT_DE;
   } else if (locale === "en") {
     base = COACH_PROMPT_EN;
-  } else if (locale === "ko" || locale === "nl" || locale === "pt-BR") {
+  } else if (
+    locale === "ko" ||
+    locale === "nl" ||
+    locale === "pt-BR" ||
+    locale === "sv"
+  ) {
     // ko, nl and pt-BR ship no safety-contract matrix, so they are not a
     // NativeCoachLocale.
     base = COACH_PROMPT_EN + LOCALE_REPLY_FOOTER_FALLBACK[locale];

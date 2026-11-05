@@ -49,6 +49,7 @@ interface I18nBootGlobal {
 const loaders: Record<Locale, () => Promise<{ default: MessageBundle }>> = {
   de: () => import("../../../messages/de.json"),
   en: () => import("../../../messages/en.json"),
+  sv: () => import("../../../messages/sv.json"),
   fr: () => import("../../../messages/fr.json"),
   es: () => import("../../../messages/es.json"),
   it: () => import("../../../messages/it.json"),

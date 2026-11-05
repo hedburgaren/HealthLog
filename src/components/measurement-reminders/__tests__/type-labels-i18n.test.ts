@@ -52,6 +52,7 @@ describe("measurement-reminder + bulk-share dynamic i18n keys", () => {
       "nl",
       "pl",
       "pt-BR",
+      "sv",
     ]);
   });
 

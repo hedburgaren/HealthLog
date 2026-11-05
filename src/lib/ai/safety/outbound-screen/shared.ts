@@ -13,14 +13,14 @@
  * the screen recognised and passed every pattern.
  */
 export const COUNT_UNIT =
-  "(?:tablets?|pills?|capsules?|drops?|puffs?|sprays?|tabletten?|kapseln?|tropfen|hübe|hub|sprühstöße|comprimés?|gélules?|gouttes?|bouffées?|comprimidos?|pastillas?|c[áa]psulas?|gotas?|compress[ae]|pastigli[ae]|gocce|goccia|tabletk[aęiy]|tabletek|kapsułk[aęiy]|kapsułek|krople|kropli|druppels?|pillen|pufjes?|pastilhas?|dr[áa]geas?|jatos?|borrifadas?)";
+  "(?:tablets?|pills?|capsules?|drops?|puffs?|sprays?|tabletten?|kapseln?|tropfen|hübe|hub|sprühstöße|comprimés?|gélules?|gouttes?|bouffées?|comprimidos?|pastillas?|c[áa]psulas?|gotas?|compress[ae]|pastigli[ae]|gocce|goccia|tabletk[aęiy]|tabletek|kapsułk[aęiy]|kapsułek|krople|kropli|druppels?|pillen|pufjes?|pastilhas?|dr[áa]geas?|jatos?|borrifadas?|tabletter?|tablett|kapslar?|kapsel|dropper?|sprutor?|sprut)";
 
 /**
  * Dose units for a target dose a model must never name. Mass and insulin
  * units plus the count forms; `ml` is left out on purpose because
  * "increase your water intake to 2000 ml" is ordinary hydration advice.
  */
-export const DRUG_UNIT = `(?:mg|mcg|µg|iu|ui|i\\.u\\.|units?|unidades?|unità|unités?|jednostek|jednostki|eenheden|eenheid|ie|i\\.e\\.|einheiten|${COUNT_UNIT})`;
+export const DRUG_UNIT = `(?:mg|mcg|µg|iu|ui|i\\.u\\.|units?|unidades?|unità|unités?|jednostek|jednostki|eenheden|eenheid|enhet(?:er)?|ie|i\\.e\\.|einheiten|${COUNT_UNIT})`;
 
 /**
  * Dose units, shared across every locale. The GLP-1 + general oral-dose
@@ -63,7 +63,7 @@ export function objectSlot(stopWords: string, maxWords = 4): string {
  * count, and the "eine Tablette mehr" shape is its own pattern below.
  */
 export const SPELLED_COUNT =
-  "(?:one|two|three|four|five|six|half\\s+an?|zwei|drei|vier|fünf|sechs|eine?n?\\s+halbe|halbe|deux|trois|quatre|cinq|demi|dos|tres|cuatro|cinco|media|due|tre|quattro|cinque|mezza|dwie|dwa|trzy|cztery|pięć|jedn[ąa]|pół|één|twee|drie|vier|vijf|zes|halve|dois|duas|três|quatro|meia|meio)";
+  "(?:one|two|three|four|five|six|half\\s+an?|zwei|drei|vier|fünf|sechs|eine?n?\\s+halbe|halbe|deux|trois|quatre|cinq|demi|dos|tres|cuatro|cinco|media|due|tre|quattro|cinque|mezza|dwie|dwa|trzy|cztery|pięć|jedn[ąa]|pół|één|twee|drie|vier|vijf|zes|halve|dois|duas|três|quatro|meia|meio|två|tva|tre|fyra|fem|en\\s+halv|halva)";
 
 /** A target dose: a number, a drug unit, and an honest unit end. */
 export const TARGET = `(?:[\\d.,]+\\s*${DRUG_UNIT}${UNIT_END}|(?<![\\w])${SPELLED_COUNT}\\s+${COUNT_UNIT}${UNIT_END})`;

@@ -16,6 +16,7 @@ import ko from "../../../../../messages/ko.json";
 import nl from "../../../../../messages/nl.json";
 import pl from "../../../../../messages/pl.json";
 import ptBR from "../../../../../messages/pt-BR.json";
+import svMessages from "../../../../../messages/sv.json";
 
 import {
   diagnosticsText,
@@ -36,6 +37,7 @@ const CATALOGS: Record<Locale, unknown> = {
   nl,
   ko,
   "pt-BR": ptBR,
+  sv: svMessages,
 };
 
 function translator(locale: Locale) {
